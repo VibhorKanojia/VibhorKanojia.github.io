@@ -7,21 +7,21 @@
 <title>Depth First Search | VibhorKanojia.github.io</title>
 <meta property="og:title" content="Depth First Search" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Depth First Search" />
-<meta property="og:description" content="Depth First Search" />
+<meta name="description" content="&lt;!DOCTYPE HTML&gt; Depth First Search" />
+<meta property="og:description" content="&lt;!DOCTYPE HTML&gt; Depth First Search" />
 <link rel="canonical" href="http://localhost:4000/algorithms/dfs.html" />
 <meta property="og:url" content="http://localhost:4000/algorithms/dfs.html" />
 <meta property="og:site_name" content="VibhorKanojia.github.io" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-03-17T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"Depth First Search","author":null,"@type":"BlogPosting","url":"http://localhost:4000/algorithms/dfs.html","publisher":null,"image":null,"headline":"Depth First Search","dateModified":"2018-03-17T00:00:00+05:30","datePublished":"2018-03-17T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithms/dfs.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"&lt;!DOCTYPE HTML&gt; Depth First Search","author":null,"@type":"BlogPosting","url":"http://localhost:4000/algorithms/dfs.html","publisher":null,"image":null,"headline":"Depth First Search","dateModified":"2018-03-17T00:00:00+05:30","datePublished":"2018-03-17T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithms/dfs.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/stylesheets/mystyle.css?v=aac7be0568ab484bfa1e79a6a891ce1afb3edce9">
+    <link rel="stylesheet" href="/stylesheets/style.css?v=0524f0a1e6ea89321f943391ec2cd62002819545">
   </head>
   <body>
     <section class="page-header">
@@ -30,7 +30,138 @@
     </section>
 
     <section class="main-content">
-      Depth First Search
+      <!DOCTYPE HTML>
+<html>
+<head>
+<title> Depth First Search</title>
+</head>
+<body>
+
+<h3> Introduction </h3>
+
+Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. One starts at the root (selecting some arbitrary node as the root in the case of a graph) and explores as far as possible along each branch before backtracking.
+
+<h3> Tutorials </h3>
+
+<table>
+  <tr>
+    <th>Links</th>
+  </tr>
+  <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Depth-first_search">Wikipedia</a></td>
+  </tr>
+  <tr>
+      <td><a href="https://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/">GeeksforGeeks</a></td>
+  </tr>
+</table>
+
+
+<h3> Complexity </h3>
+<table>
+  <tr>
+    <th>Time Complexity (Worst case)</th>
+    <th>Space Compexity (Worst case)</th>
+  </tr>
+  <tr>
+    <td>O(V+E)</td>
+    <td>O(V)</td>
+  </tr>
+</table>
+
+<h3> Implementation </h3>
+
+Before moving forward, try to implement it yourself. Both iterative and recursive implementations should not take more than 10 minutes combined.
+
+<h4> Iterative </h4>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">Node</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>                     <span class="c1">//Unique ID for each node
+</span>    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Node</span> <span class="o">*&gt;</span> <span class="n">neighbors</span><span class="p">;</span>   <span class="c1">//List of neighbor nodes
+</span>    <span class="n">bool</span> <span class="n">visited</span><span class="p">;</span>               <span class="c1">//boolean status for each node
+</span>    <span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">){</span>
+        <span class="n">this</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">-&gt;</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="n">dfs</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span> <span class="n">root</span><span class="p">){</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    
+    <span class="n">stack</span><span class="o">&lt;</span><span class="n">Node</span> <span class="o">*&gt;</span> <span class="n">buffer</span><span class="p">;</span>
+    <span class="n">buffer</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">buffer</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        
+        <span class="n">Node</span> <span class="o">*</span> <span class="n">cur_node</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">cur_node</span><span class="o">-&gt;</span><span class="n">id</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+        <span class="n">cur_node</span><span class="o">-&gt;</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">buffer</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="p">(</span><span class="n">cur_node</span><span class="o">-&gt;</span><span class="n">neighbors</span><span class="p">).</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="p">(</span><span class="n">cur_node</span><span class="o">-&gt;</span><span class="n">neighbors</span><span class="p">).</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">visited</span><span class="p">)</span> <span class="n">buffer</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4> Recursive </h4>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">Node</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>                     <span class="c1">//Unique ID for each node
+</span>    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Node</span> <span class="o">*&gt;</span> <span class="n">neighbors</span><span class="p">;</span>   <span class="c1">//List of neighbor nodes
+</span>    <span class="n">bool</span> <span class="n">visited</span><span class="p">;</span>               <span class="c1">//boolean status for each node
+</span>    <span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">){</span>
+        <span class="n">this</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">-&gt;</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+
+<span class="c1">//NOTE: buffer will initially contain the root/source node
+</span>
+<span class="kt">void</span> <span class="n">dfs</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span> <span class="n">root</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">visited</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+    <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>             
+    <span class="n">cur_node</span><span class="o">-&gt;</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="p">(</span><span class="n">cur_node</span><span class="o">-&gt;</span><span class="n">neighbors</span><span class="p">).</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="p">(</span><span class="n">cur_node</span><span class="o">-&gt;</span><span class="n">neighbors</span><span class="p">).</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+Note that we don't need a stack for the recursive implementation. Function stack acts as the stack data structure in this case. Again, recursive function is not tail recursive.
+
+<h3> Quiz </h3>
+
+<ul>
+    <li> How do we handle disconnected graph for the DFS traversal? </li>
+    <li> Can DFS be used to print all the paths from root to leaves? </li>
+    <li> How many recursive calls does each call of DFS function makes? Is there an upper bound on the total number of recursive calls made?</li>
+    <li> Can a DFS algorithm be used to detect cycles in an undirected graph? In a directed graph?</li>
+    <li> What is the time and space complexity of DFS if we use adjacency matrix instead of adjacency list to represent the graph?</li>
+    <li> How would you modify the code to store path information as well?</li>
+
+</ul>
+
+<h4> Questions </h4>
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>LeetCode</th>
+    <th>C++ Solution</th>
+  </tr>
+  
+</table>
+</body>
+</html>
 
 
       <footer class="site-footer">
