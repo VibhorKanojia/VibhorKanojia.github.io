@@ -10,7 +10,7 @@ title: Algorithms
 <body>
 While thinking about the algorithms, one should consider the tradeoffs between time complexity (average and worst case), space complexity, and lines of code needed. Below is a compiled list of basic and advanced algorithms:
 <ul>
-  {% for post in site.categories.ALGORITHMS %}
+  {% for post in site.categories.ALGORITHMS reversed %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
     </li>

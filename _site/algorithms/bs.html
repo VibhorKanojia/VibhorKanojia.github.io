@@ -7,31 +7,150 @@
 <title>Binary Search | VibhorKanojia.github.io</title>
 <meta property="og:title" content="Binary Search" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Binary Search" />
-<meta property="og:description" content="Binary Search" />
+<meta name="description" content="&lt;!DOCTYPE HTML&gt; Binary Search" />
+<meta property="og:description" content="&lt;!DOCTYPE HTML&gt; Binary Search" />
 <link rel="canonical" href="http://localhost:4000/algorithms/bs.html" />
 <meta property="og:url" content="http://localhost:4000/algorithms/bs.html" />
 <meta property="og:site_name" content="VibhorKanojia.github.io" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-03-17T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"Binary Search","author":null,"@type":"BlogPosting","url":"http://localhost:4000/algorithms/bs.html","publisher":null,"image":null,"headline":"Binary Search","dateModified":"2018-03-17T00:00:00+05:30","datePublished":"2018-03-17T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithms/bs.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"&lt;!DOCTYPE HTML&gt; Binary Search","author":null,"@type":"BlogPosting","url":"http://localhost:4000/algorithms/bs.html","publisher":null,"image":null,"headline":"Binary Search","dateModified":"2018-03-17T00:00:00+05:30","datePublished":"2018-03-17T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithms/bs.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/stylesheets/style.css?v=0524f0a1e6ea89321f943391ec2cd62002819545">
+    <link rel="stylesheet" href="/stylesheets/style.css?v=7e1e782bf6faee758afe47fc27f42d6c836127fe">
   </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">Binary Search</h1>
       <h2 class="project-tagline"></h2>
     </section>
+   
+    <div>
 
-    <section class="main-content">
-      Binary Search
+    <section style="float:left" class="main-content">
+      <!DOCTYPE HTML>
+<html>
+<head>
+<title> Binary Search</title>
+</head>
+<body>
 
+<h3> Introduction </h3>
+Binary Search is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful. If the search ends with the remaining half being empty, the target is not in the array.
+
+<h3> Tutorials </h3>
+
+<table>
+  <tr>
+    <th>Links</th>
+  </tr>
+  <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Wikipedia</a></td>
+  </tr>
+  <tr>
+      <td><a href="https://www.geeksforgeeks.org/binary-search/">GeeksforGeeks</a></td>
+  </tr>
+</table>
+
+
+<h3> Complexity </h3>
+<table>
+  <tr>
+    <th>Time Complexity (Worst case)</th>
+    <th>Space Compexity (Worst case)</th>
+  </tr>
+  <tr>
+    <td>O(N*logN)</td>
+    <td>O(1)</td>
+  </tr>
+</table>
+
+<h3> Implementation </h3>
+
+Before moving forward, try to implement it yourself. Both iterative and recursive implementations should not take more than 10 minutes combined.
+
+<h4> Iterative </h4>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">bool</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">){</span>
+    
+    <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">)</span> <span class="n">end</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+        <span class="k">else</span> <span class="n">start</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4> Recursive </h4>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">//Note that in the following implementation array is sorted, start is inclusive, end is exclusive.
+</span>
+<span class="n">bool</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">){</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;=</span> <span class="n">end</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">)</span> <span class="k">return</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">mid</span><span class="p">,</span><span class="n">target</span><span class="p">);</span>
+
+    <span class="k">else</span> <span class="k">return</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">mid</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">target</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3> Quiz </h3>
+
+<ul>
+    <li> Why don't we calculate mid as (start+end)/2 ?</li>
+    <li> Why is Binary Search preferred over Ternary Search? What are the number of comparisons in both the cases?</li>
+    <li> Worst case time complexity to find if the target exits in an array? </li>
+    <li> Worst case time complexity to find if the target exists in a sorted array? </li>
+    <li> Worst case time complexity to find the indices of the target in a sorted array? </li>
+    <li> How would you modify the code to make end inclusive in both the implementations?</li>
+</ul>
+
+<h4> Questions </h4>
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>LeetCode</th>
+    <th>C++ Solution</th>
+  </tr>
+  
+</table>
+</body>
+</html>
+
+    </section>
+    
+    <section style="float:right" class="main-content">
+      
+        <ul>
+            
+            <li>
+                <a href="/content/ds.html">Basic Data Structures</a>
+            </li>
+            
+            <li>
+                <a href="/content/algo.html">Algorithms</a>
+            </li>
+            
+            <li>
+                <a href="/content/problems.html">Problems</a>
+            </li>
+            
+        </ul>
+    </section>
 
       <footer class="site-footer">
         
@@ -39,7 +158,8 @@
         
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
       </footer>
-    </section>
+
+    </div>
 
     
   </body>

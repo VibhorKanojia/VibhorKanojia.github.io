@@ -318,3 +318,5 @@ a:hover { text-decoration: underline; }
 .site-footer-credits { color: #819198; }
 
 .page-header { color: #fff; text-align: center; background-color: #222222; background-image: none; padding: 1em 1em; }
+
+.site-footer { clear: both; text-align: center; }

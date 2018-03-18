@@ -7,31 +7,100 @@
 <title>Arrays | VibhorKanojia.github.io</title>
 <meta property="og:title" content="Arrays" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Arrayl" />
-<meta property="og:description" content="Arrayl" />
+<meta name="description" content="&lt;!DOCTYPE HTML&gt; Arrays" />
+<meta property="og:description" content="&lt;!DOCTYPE HTML&gt; Arrays" />
 <link rel="canonical" href="http://localhost:4000/datastructures/array.html" />
 <meta property="og:url" content="http://localhost:4000/datastructures/array.html" />
 <meta property="og:site_name" content="VibhorKanojia.github.io" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-03-16T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"Arrayl","author":null,"@type":"BlogPosting","url":"http://localhost:4000/datastructures/array.html","publisher":null,"image":null,"headline":"Arrays","dateModified":"2018-03-16T00:00:00+05:30","datePublished":"2018-03-16T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/datastructures/array.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"&lt;!DOCTYPE HTML&gt; Arrays","author":null,"@type":"BlogPosting","url":"http://localhost:4000/datastructures/array.html","publisher":null,"image":null,"headline":"Arrays","dateModified":"2018-03-16T00:00:00+05:30","datePublished":"2018-03-16T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/datastructures/array.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/stylesheets/style.css?v=0524f0a1e6ea89321f943391ec2cd62002819545">
+    <link rel="stylesheet" href="/stylesheets/style.css?v=7e1e782bf6faee758afe47fc27f42d6c836127fe">
   </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">Arrays</h1>
       <h2 class="project-tagline"></h2>
     </section>
+   
+    <div>
 
-    <section class="main-content">
-      Arrayl
+    <section style="float:left" class="main-content">
+      <!DOCTYPE HTML>
+<html>
+<head>
+<title> Arrays</title>
+</head>
+<body>
 
+<h3> Introduction </h3>
+<p>In C++, arrays can be used to store a collection of elements having the same type, where each element is uniquely identified by an index. Elements in an array are stored consecutively, and hence, given the address of the first element, the address of each element can be calculated using a mathematical formula. This provides O(1) access to each element of the array.</p>
+<p>The size of an array means the number of elements it can hold.</p>
+
+<h3> Specifics </h3>
+In order to have O(1) access, we need to allocate a continuous block of memory to hold all the elements of an array. This constraint has a few drawbacks:
+<ol>
+    <li>User must specify the array size (number of elements) initially while defining the array</li>
+    <li>User cannot resize the array</li>
+    <li>Deleting an element has O(N) time complexity, as we will have to move all the elements after it by one position</li>
+</ol>
+
+<h3> Implementation </h3>
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span> <span class="cm">/*defines an array of size 20*/</span></code></pre></figure>
+Note that this command will allocate a block of 20*4 bytes of memory to the array A. The memory is allocated in the function stack.
+Here A is an integer pointer which points to the first element of the array.
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"> 
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="cm">/*prints the ith element of the array*/</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="cm">/*alternative way to print the ith element of the array*/</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="cm">/*prints the size of the array*/</span></code></pre></figure>
+
+Arrays defined using the above method have their scope limited to the function stack. In order to access an array across various functions without making copies of the array, we need to allocate the memory in heap. In c++, this is done via the new commmand.
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">int</span> <span class="o">*</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span></code></pre></figure>
+
+Arrays don't have to be one dimensional. One can also define multi-dimensional arrays.
+The following code defines a 2D array having 20 rows and 10 columns.
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="mi">20</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span> <span class="cm">/*memory is allocated in stack*/</span>
+
+<span class="kt">int</span> <span class="o">**</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">*</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>   <span class="cm">/*memory is allocated in heap*/</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="cm">/*prints the element at indices i:j*/</span></code></pre></figure>
+
+<h3> Problems </h3>
+
+</body>
+</html>
+
+    </section>
+    
+    <section style="float:right" class="main-content">
+      
+        <ul>
+            
+            <li>
+                <a href="/content/ds.html">Basic Data Structures</a>
+            </li>
+            
+            <li>
+                <a href="/content/algo.html">Algorithms</a>
+            </li>
+            
+            <li>
+                <a href="/content/problems.html">Problems</a>
+            </li>
+            
+        </ul>
+    </section>
 
       <footer class="site-footer">
         
@@ -39,7 +108,8 @@
         
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
       </footer>
-    </section>
+
+    </div>
 
     
   </body>

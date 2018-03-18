@@ -1,0 +1,28 @@
+---
+layout: default
+title: Problems
+---
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> {{ page.title }}</title>
+</head>
+<body>
+Below is a list of problems to practice, along with their Leetcode link, and my c++ solutions.
+<table>
+  <tr>
+    <th>Title</th>
+    <th>LeetCode</th>
+    <th>C++ Solution</th>
+  </tr>
+  {% for post in site.categories.PROBLEMS reversed %}
+  <tr>
+      <td>{{post.title}}</td>
+      <td><a href={{post.leetcode}}>Link</a></td>
+      <td><a href={{post.solution}}>Link</a></td>
+  </tr>  
+  {% endfor %}
+</table>
+</ul>
+</body>
+</html>

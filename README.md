@@ -10,6 +10,8 @@ Each post should have a front matter to specify the title, layout to use, catego
 
 "\_config" file mentions the Jekyll theme to be used in the project. Currently using 'Cayman' theme
 
+"content" category/directory has the list of categories to be shown in the side bar.
+
 stylesheets directory contains "style.scss" css file which compiles and becomes "style.css". This scss file should also include front matter, and should import the base site theme.
 Any rules added into this file will override the rules mentioned in base site theme.
 

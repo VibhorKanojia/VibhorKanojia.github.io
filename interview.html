@@ -10,7 +10,7 @@ title: Technical Interview Preparation
 </head>
 <body>
 <ul>
-    {% for post in site.categories.CONTENT %}
+    {% for post in site.categories.CONTENT reversed %}
         <li>
             <a href="{{ post.url }}">{{post.title}}</a>
         </li>
