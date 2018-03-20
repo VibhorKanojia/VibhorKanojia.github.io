@@ -7,21 +7,21 @@
 <title>Disjoint Set | VibhorKanojia.github.io</title>
 <meta property="og:title" content="Disjoint Set" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Distjoint Set" />
-<meta property="og:description" content="Distjoint Set" />
+<meta name="description" content="&lt;!DOCTYPE HTML&gt; Disjoint Set" />
+<meta property="og:description" content="&lt;!DOCTYPE HTML&gt; Disjoint Set" />
 <link rel="canonical" href="http://localhost:4000/datastructures/disjointset.html" />
 <meta property="og:url" content="http://localhost:4000/datastructures/disjointset.html" />
 <meta property="og:site_name" content="VibhorKanojia.github.io" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-03-18T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"Distjoint Set","author":null,"@type":"BlogPosting","url":"http://localhost:4000/datastructures/disjointset.html","publisher":null,"image":null,"headline":"Disjoint Set","dateModified":"2018-03-18T00:00:00+05:30","datePublished":"2018-03-18T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/datastructures/disjointset.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"&lt;!DOCTYPE HTML&gt; Disjoint Set","author":null,"@type":"BlogPosting","url":"http://localhost:4000/datastructures/disjointset.html","publisher":null,"image":null,"headline":"Disjoint Set","dateModified":"2018-03-18T00:00:00+05:30","datePublished":"2018-03-18T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/datastructures/disjointset.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/stylesheets/style.css?v=7e1e782bf6faee758afe47fc27f42d6c836127fe">
+    <link rel="stylesheet" href="/stylesheets/style.css?v=84dfe5b4e2cc77baf9033eb6da7af4bf50865035">
   </head>
   <body>
     <section class="page-header">
@@ -32,7 +32,150 @@
     <div>
 
     <section style="float:left" class="main-content">
-      Distjoint Set
+      <!DOCTYPE HTML>
+<html>
+<head>
+<title> Disjoint Set</title>
+</head>
+<body>
+
+<h3> Introduction </h3>
+<p>Facebook has more than 2 billion users and, very often, given two users A and B, Facebook needs to find if A and B are connected. Such information can be really useful in features like friend suggestions, privacy protections, and various data analysis tasks.</p>
+<p>One way to approach this problem is by doing a BFS, starting with A as source node and expanding the graph by visiting A's friends and stopping the search when we reach B. This approach will work for small datasets, but when you consider over 2 billion users each having around 500 friends, BFS ends up using a lot of space, and unnecessary expansion of graph leads to performance degradation. For example, imagine a scenario where A is infact not connnected to B! </p>
+<p>One can think of various optimizations to improve the performance, and develop better heuristics to guide the graph expansion (A* algorithm), but it still won't give the satisfactory results. Keep in mind that the graph is not static, and the graph may have new connections over time.</p>
+<p> What if we could answer this query in O(logN) time? Even better, what if we could answer this query in O(1) time?</p>
+<p><i>Disjoint Sets to the rescue</i></p>
+
+<h3> Specifics </h3>
+<p>Let's consider a graph of N nodes, where each node is isolated initially. We need to implement 2 functions:</p>
+<ol>
+    <li><b>Connect(node A, node B):</b> Connects nodes A and B; as a result, all connections of B are also connected to A and vice-versa</li>
+    <li><b>Find(node A, node B):</b> Finds out if nodes A and B are connected</li>
+</ol>
+<p>Disjoint Set data structure assigns a root node for each group of connected nodes. To connect nodes A and B, we merge the two groups and assign a root node to the new group. To check if node A is connected to node B, we see if the root of A is the same as the root of B (because this will imply that nodes A and B are in the same group).</p>
+
+<h3> Implementation </h3>
+<p>Disjoint Set data structure maintains a vector of size N to store the root of each group. Initially we have N isolated groups with each node being the root of its group. We just change the root nodes accordingly when we connect two nodes.</p>
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cm">/* O(N) time complexity in the worst case */</span>
+<span class="kt">int</span> <span class="n">getRoot</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">DS</span><span class="p">){</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="n">A</span><span class="p">]</span> <span class="o">!=</span> <span class="n">A</span><span class="p">)</span> <span class="n">A</span> <span class="o">=</span> <span class="n">DS</span><span class="p">[</span><span class="n">A</span><span class="p">];</span>  <span class="cm">/* Keep moving up until we reach the root. */</span>
+    
+    <span class="k">return</span> <span class="n">A</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="n">Connect</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">B</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">DS</span><span class="p">){</span>
+    
+    <span class="kt">int</span> <span class="n">rootA</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+    
+    <span class="kt">int</span> <span class="n">rootB</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+
+    <span class="n">DS</span><span class="p">[</span><span class="n">rootB</span><span class="p">]</span> <span class="o">=</span> <span class="n">rootA</span><span class="p">;</span>        <span class="cm">/*Change the root of the rootB to the root of the rootA, effectively merging the groups together */</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="n">Find</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">B</span><span class="p">){</span>
+    
+    <span class="kt">int</span> <span class="n">rootA</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">rootB</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">rootA</span> <span class="o">==</span> <span class="n">rootB</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The above code is the basic implementation of disjoint set data structure and algorithm. But as you can notice, getRoot function has worst case time complexity of O(N). And hence, both Connect and Find functions also become O(N) in the worst case. We can improve this by using two heuristics, union by rank and path compression.</p>
+
+<h5> Union by Rank </h5>
+<p>The idea in the first heuristic, union by rank, is to make the root of the tree with fewer nodes point to the root of the tree with more nodes. To implement this, we need to maintain the rank of each group in another vector. With each node x, we keep the integer value rank[x], which is bigger than or equal to the number of edges in the longest path between node x and a sub-leaf. In other words, rank[x] is an upper bound on the height of the node x. This will make sure that the tree formed is balanced, thereby, reducing the complexity of getRoot function to O(logN) in the worst case.</p>
+
+<h5> Path Compression </h5>
+<p>The idea of path compression is to flatten the structure everytime we traverse the tree. This is done by making each node point to root directly. This reduces the complexity of getRoot function to O(log*N).</p>
+<p>O(log*N) is the number of log functions needed to make N equal to 1. log*(2<sup>65536</sup>) = 5. Therefore, for every practical purpose, O(log*N) ~ O(1).</p>
+<p>Note that this step doesn't change the rank of a node.</p>
+
+<p>The code below uses both of these heuristics to significantly improve the performance of the disjoint set data structure. Rank of each group is set to 0 initially.</p>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cm">/* O(log*N) time complexity in the worst case */</span>
+<span class="kt">int</span> <span class="n">getRoot</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">DS</span><span class="p">){</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="n">A</span><span class="p">]</span> <span class="o">!=</span> <span class="n">A</span><span class="p">)</span> <span class="n">DS</span><span class="p">[</span><span class="n">A</span><span class="p">]</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="n">A</span><span class="p">],</span> <span class="n">DS</span><span class="p">);</span> <span class="cm">/* Path compression */</span>
+
+    <span class="k">return</span> <span class="n">DS</span><span class="p">[</span><span class="n">A</span><span class="p">];</span>
+ 
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="n">Connect</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">B</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">DS</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">rank</span><span class="p">){</span>
+    
+    <span class="kt">int</span> <span class="n">rootA</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+    
+    <span class="kt">int</span> <span class="n">rootB</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+    
+    <span class="cm">/* Union by rank */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">A</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">B</span><span class="p">])</span> <span class="n">DS</span><span class="p">[</span><span class="n">rootA</span><span class="p">]</span> <span class="o">=</span> <span class="n">rootB</span><span class="p">;</span>
+    
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">B</span><span class="p">}</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="n">A</span><span class="p">])</span> <span class="n">DS</span><span class="p">[</span><span class="n">rootB</span><span class="p">]</span> <span class="o">=</span> <span class="n">rootA</span><span class="p">;</span>
+    
+    <span class="cm">/* Ranks only change when both groups were of same rank before merging */</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">DS</span><span class="p">[</span><span class="n">rootA</span><span class="p">]</span> <span class="o">=</span> <span class="n">rootB</span><span class="p">;</span>
+        <span class="n">rank</span><span class="p">[</span><span class="n">rootB</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="n">Find</span><span class="p">(</span><span class="kt">int</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">B</span><span class="p">){</span>
+    
+    <span class="kt">int</span> <span class="n">rootA</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">rootB</span> <span class="o">=</span> <span class="n">getRoot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">DS</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">rootA</span> <span class="o">==</span> <span class="n">rootB</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+
+<h3> External Tutorials </h3>
+
+<table>
+  <tr>
+    <th>Links</th>
+  </tr>
+  <tr>
+      <td><a href="https://www.topcoder.com/community/data-science/data-science-tutorials/disjoint-set-data-structures/">Topcoder</a></td>
+  </tr>
+  <tr>
+      <td><a href="https://www.geeksforgeeks.org/union-find/">GeeksforGeeks</a></td>
+  </tr>
+</table>
+
+<h4> Questions </h4>
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>LeetCode</th>
+    <th>C++ Solution</th>
+  </tr>
+  
+  <tr>
+      <td>Redundant Connection II</td>
+      <td><a href=https://leetcode.com/problems/redundant-connection-ii/description/>Link</a></td>
+      <td><a href=https://github.com/VibhorKanojia/LeetCode/blob/master/RedundantConnectionTwo.cpp>Link</a></td>
+  </tr>  
+  
+  <tr>
+      <td>Redundant Connection</td>
+      <td><a href=https://leetcode.com/problems/redundant-connection/description/>Link</a></td>
+      <td><a href=https://github.com/VibhorKanojia/LeetCode/blob/master/RedundantConnection.cpp>Link</a></td>
+  </tr>  
+  
+</table>
+</body>
+</html>
 
     </section>
     

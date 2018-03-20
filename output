@@ -1,0 +1,8 @@
+Configuration file: /Users/vibhor/Desktop/Projects/VibhorKanojia.github.io/_config.yml
+            Source: /Users/vibhor/Desktop/Projects/VibhorKanojia.github.io
+       Destination: /Users/vibhor/Desktop/Projects/VibhorKanojia.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 2.897 seconds.
+ Auto-regeneration: enabled for '/Users/vibhor/Desktop/Projects/VibhorKanojia.github.io'
+jekyll 3.6.2 | Error:  Address already in use - bind(2) for 127.0.0.1:4000
