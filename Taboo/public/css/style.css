@@ -385,5 +385,24 @@ input[type="text"] {
 
 }
 
-
+table.redTable {
+  border: 2px solid #000000;
+  background-color: #343D73;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.redTable td, table.redTable th {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #000000;
+  border: 2px solid #000000;
+  padding: 5px 2px;
+}
+table.redTable tbody td {
+  background: #89A3D9;
+  font-size: 13px;
+}
 /* //respoinsive */

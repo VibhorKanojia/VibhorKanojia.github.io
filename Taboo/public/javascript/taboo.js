@@ -18,7 +18,6 @@ function readTextFile(file){
                 var lines = allText.split('\n'); 
                 for(var i = 0; i< lines.length; i++){
                     cards.push(lines[i]);
-                    alert("done");
                 }
             }
         }
@@ -50,6 +49,25 @@ function loadConfig(formId){
     loadGame();
 }
 
-function loadGame(){
-    readTextFile('https://github.com/VibhorKanojia/VibhorKanojia.github.io/blob/master/Taboo/public/javascript/cards.txt');
+function changeCard(){
+    var index = Math.floor(Math.random() * 1300);
+    var words = cards[index].split(",");
+    var c = document.getElementById('container');
+    var html = "<table class='redTable'><th>"+ words[0] + "</th>";
+    for (var i = 1; i < 6 ; i++){
+        html = html + "<tr><td>"+words[i]+"</td></tr>";
+    }
+    html = html + "</table>";
+    c.innerHTML = html;
 }
+
+function loadGame(){
+    readTextFile('https://raw.githubusercontent.com/VibhorKanojia/VibhorKanojia.github.io/master/Taboo/public/javascript/cards.txt');
+    alert('done');
+    //window.setInterval(changeCard, 5000);
+    window.setTimeout(changeCard, 5000);
+}
+
+
+
+
