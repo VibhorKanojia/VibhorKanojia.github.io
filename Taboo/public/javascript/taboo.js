@@ -51,5 +51,5 @@ function loadConfig(formId){
 }
 
 function loadGame(){
-    readTextFile('https://raw.githubusercontent.com/VibhorKanojia/LeetCode/master/3SumClosest.cpp');
+    readTextFile('https://github.com/VibhorKanojia/VibhorKanojia.github.io/blob/master/Taboo/public/javascript/cards.txt');
 }
