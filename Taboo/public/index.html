@@ -1,0 +1,114 @@
+
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta tags -->
+	<title>Taboo</title>
+	<meta name="keywords" content="Taboo Game Free" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="javascript/taboo.js"></script>
+</head>
+<body>
+	<div class="w3ls-banner">
+	<div class="heading">
+				<h1>Taboo!</h1>
+	</div>
+		<div class="container">
+			<div class="heading" id="abc">
+				<h2>Game Configuration</h2>
+			</div>
+			<div class="agile-form">
+				<form id="config" onSubmit="return false;"  method="post">
+					<ul class="field-list" id="mylist">
+						<li>
+							<label class="form-label"> 
+								#Teams: 
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+                                    <select name="day" class="day" onchange="addField(this.value);">
+										<option value="2"> 2 </option>
+										<option value="3"> 3 </option>
+										<option value="4"> 4 </option>
+                                    </select>
+                                </span>
+                            </div>
+						</li>
+
+						<li>
+							<label class="form-label"> 
+							    #Rounds:
+								<span class="form-required"> * </span>
+							</label> 
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" class="day">
+										<option value="10"> 10 </option>
+										<option value="20"> 20 </option>
+										<option value="INFINITE"> INFINITE </option>
+                                    </select>
+                                </span>
+                            </div>
+						</li>
+
+						<li>
+							<label class="form-label"> 
+								Turn Duration: 
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" class="day">
+										<option value="1"> 1 minute </option>
+										<option value="2"> 2 minutes </option>
+                                    </select>
+                                </span>
+                            </div>
+						</li>
+						<li>
+							<label class="form-label">
+							   Penalty:
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" class="day">
+										<option value="yes"> Yes </option>
+										<option value="no"> No </option>
+									</select>
+								</span>
+							</div>
+						</li>
+                        <li>
+                            <label class='form-label'>
+                                Team Names:
+                                <span class='form-required'> * </span>
+                            </label>
+                            <div class='form-input' id="names">
+                                <input type='text' value = 'Team0' id='team0' placeholder='' required >
+                                
+                                <input type='text' value = 'Team1' id='team1' placeholder='' required >
+                            </div>
+                        </li>
+					</ul>
+					<input type="submit" value="Start" onclick="loadConfig('config');">
+				</form>	
+			</div>
+		</div>
+	</div>
+</body>
+</html>
