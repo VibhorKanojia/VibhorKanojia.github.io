@@ -405,4 +405,16 @@ table.redTable tbody td {
   background: #89A3D9;
   font-size: 13px;
 }
-/* //respoinsive */
+
+.scoreBoard{
+    width: 100%;
+    display: table;
+}
+
+.score{
+    text-align: center;
+    display: table-cell;
+    padding: 5px 10px;
+    border: 2px solid #000000;
+}
+

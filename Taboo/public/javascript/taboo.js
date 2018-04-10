@@ -4,7 +4,7 @@ var rounds = 0;
 var duration = 1;
 var penalty = 1;
 var cards = [];
-
+var FILEPATH = "https://raw.githubusercontent.com/VibhorKanojia/VibhorKanojia.github.io/master/Taboo/public/javascript/cards.txt";
 function readTextFile(file){
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -50,9 +50,9 @@ function loadConfig(formId){
 }
 
 function changeCard(){
+    var c = document.getElementById('card');
     var index = Math.floor(Math.random() * 1300);
     var words = cards[index].split(",");
-    var c = document.getElementById('container');
     var html = "<table class='redTable'><th>"+ words[0] + "</th>";
     for (var i = 1; i < 6 ; i++){
         html = html + "<tr><td>"+words[i]+"</td></tr>";
@@ -61,11 +61,173 @@ function changeCard(){
     c.innerHTML = html;
 }
 
+
+var turn = 0;
+var cur_round = 0;
+var scores = [];
+
+function displayTime(){
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var totalSeconds = 30;
+    var intervalId = setInterval(setTime, 1000);
+
+    function setTime() {
+        --totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        if (totalSeconds == 0){
+            window.clearInterval(intervalId);
+            turn = turn+1;
+            playTurn();
+        }
+    }
+
+    function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) {
+            return "0" + valString;
+        } else {
+            return valString;
+        }
+    }
+}
+
+function startTimer(){
+    displayTime();
+    changeCard();
+}
+
+
+function buttonClick(action){
+    var cur_team = turn%teamcount;
+    if (action == 'taboo'){
+        scores[cur_team] = scores[cur_team] -1;
+    }
+    else if (action == 'correct'){
+        scores[cur_team] = scores[cur_team] +3;
+    }
+    document.getElementById('score_'+cur_team).innerHTML = scores[cur_team];
+    changeCard();
+}
+
+function addCard(c){
+    var timerDiv = document.createElement('div');
+    timerDiv.innerHTML= "<label id='minutes'>01</label>:<label id='seconds'>00</label>";
+    timerDiv.id = 'timer';
+    timerDiv.className = 'timer';
+
+    var cardDiv = document.createElement('div');
+    cardDiv.id = 'card';
+    cardDiv.className = 'card';
+    
+    var buttonDiv = document.createElement('div');
+    buttonDiv.id = 'button';
+    buttonDiv.className = 'button';
+
+    var tabooButton = document.createElement('button');
+    tabooButton.innerHTML = "Taboo!";
+
+    var passButton = document.createElement('button');
+    passButton.innerHTML = "Pass";
+    
+    var correctButton = document.createElement('button');
+    correctButton.innerHTML = "Correct";
+    
+    buttonDiv.append(tabooButton);
+    buttonDiv.append(passButton);
+    buttonDiv.append(correctButton);
+
+    c.append(timerDiv);
+    c.append(cardDiv);
+    c.append(buttonDiv);
+    tabooButton.addEventListener("click", function(){buttonClick('taboo');});
+    passButton.addEventListener("click", function(){buttonClick('pass');});
+    correctButton.addEventListener("click", function(){buttonClick('correct');});
+    //alert(c.innerHTML);
+    startTimer();
+}
+
+function startTurn(){
+    var c = document.getElementById('container');
+    var infoDiv = document.getElementById('info');
+    if (infoDiv){
+        infoDiv.parentNode.removeChild(infoDiv);
+    }
+    addCard(c);
+}
+
+
+function addInfo(c){
+    var cardDiv = document.getElementById('card');
+    if (cardDiv){
+        cardDiv.parentNode.removeChild(cardDiv);
+    }
+
+    var timerDiv = document.getElementById('timer');
+    if (timerDiv){
+        timerDiv.parentNode.removeChild(timerDiv);
+    }
+
+    var buttonDiv = document.getElementById('button');
+    if (buttonDiv){
+        buttonDiv.parentNode.removeChild(buttonDiv);
+    }
+
+    var cur_team = turn%teamcount;
+    var newDiv = document.createElement('div');
+    newDiv.id = 'info';
+    newDiv.className = 'info';
+    var html = "<h3> Round: "+cur_round + "</h3>";
+    html = html + "<h3> Team: "+teams[cur_team]+ "</h3>";
+    html = html + "<button onclick='startTurn()'> READY </button>";
+    newDiv.innerHTML = html;
+    c.append(newDiv);
+}
+
+
+function addScores(c){
+    var c = document.getElementById('container');
+    c.innerHTML = ""; 
+    var cur_team = turn%teamcount;
+
+    var newDiv = document.createElement('div');
+    newDiv.id = 'scoreBoard';
+    newDiv.className = 'scoreBoard';
+
+    for (var i = 0 ; i < teamcount; i++){
+        var scoreDiv = document.createElement('div');
+        scoreDiv.className = 'score';
+        scoreDiv.innerHTML = "<h4>"+teams[i] +"</h4><p id='score_"+i+"'>" + scores[i] + "</p>";
+        newDiv.append(scoreDiv);
+    }
+    c.append(newDiv);
+}
+
+
+function playTurn(){
+    if (turn == 2*teamcount){
+        turn = 0;
+        cur_round = cur_round +1;
+    }
+    var cur_team = turn%teamcount;
+
+    var c = document.getElementById('container');
+    addInfo(c);
+}
+
+
 function loadGame(){
-    readTextFile('https://raw.githubusercontent.com/VibhorKanojia/VibhorKanojia.github.io/master/Taboo/public/javascript/cards.txt');
+    readTextFile(FILEPATH);
     alert('done');
+    for (var i = 0 ; i < teamcount; i++){
+        scores.push(0);
+    }
+    addScores();
+    playTurn();
     //window.setInterval(changeCard, 5000);
-    window.setTimeout(changeCard, 5000);
+
+    //window.setTimeout(changeCard, 5000);
 }
 
 
