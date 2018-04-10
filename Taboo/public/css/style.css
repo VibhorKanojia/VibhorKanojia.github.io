@@ -54,7 +54,7 @@ a:focus, a:hover {
 /*-- //Reset-Code --*/
 
 .w3ls-banner {
-    background: #222;
+    background: url(../images/back.jpg) no-repeat;
 	background-size: cover;
     min-height: 100vh;
     color: white;
@@ -83,7 +83,7 @@ a:focus, a:hover {
     margin: auto;
     padding: 30px 30px 20px;
     box-sizing: border-box;
-    background-color: rgba(52, 53, 53, 0.65);
+    background-color: ##9ad93d;
 }
 
 label.form-label {
@@ -160,10 +160,7 @@ input[type="submit"], .button {
 	outline: 0;
 	cursor: pointer;
 }
-input[type="submit"]:hover {
-   background:#bf154f;
-    color: white;
-}
+
 input.year {
 	width: 31% !important;
 	    padding: 6px;
@@ -388,7 +385,7 @@ input[type="text"] {
 
 table.redTable {
   border: 2px solid #000000;
-  background-color: #343D73;
+  background-color: #030826;
   width: 100%;
   text-align: center;
   border-collapse: collapse;
@@ -403,7 +400,7 @@ table.redTable td, table.redTable th {
   padding: 5px 2px;
 }
 table.redTable tbody td {
-  background: #89A3D9;
+  background: #A6806A;
   font-size: 13px;
 }
 
@@ -421,6 +418,18 @@ table.redTable tbody td {
 
 .info{
     text-align:center;
-    margin: 10px 10px;
+    padding: 10px 10px;
 }
 
+.timer{
+    background: #404C62;
+    text-align: center;
+    font-size: 25px;
+    padding:5px 5px;
+    border: 2px solid #000000;
+    margin: 10px 0px;
+}
+
+.card{
+    margin: 10px 0px;
+}
