@@ -1,4 +1,5 @@
 body {
+    position: fixed;
 	padding: 0;
 	margin: 0;
 	font-family: 'Roboto Condensed', sans-serif;
