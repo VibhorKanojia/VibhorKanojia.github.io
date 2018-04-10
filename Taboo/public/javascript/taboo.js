@@ -123,16 +123,18 @@ function addCard(c){
     
     var buttonDiv = document.createElement('div');
     buttonDiv.id = 'button';
-    buttonDiv.className = 'button';
 
     var tabooButton = document.createElement('button');
     tabooButton.innerHTML = "Taboo!";
+    tabooButton.className = 'button';
 
     var passButton = document.createElement('button');
     passButton.innerHTML = "Pass";
+    passButton.className = 'button';
     
     var correctButton = document.createElement('button');
     correctButton.innerHTML = "Correct";
+    correctButton.className = 'button';
     
     buttonDiv.append(tabooButton);
     buttonDiv.append(passButton);
@@ -180,7 +182,7 @@ function addInfo(c){
     newDiv.className = 'info';
     var html = "<h3> Round: "+cur_round + "</h3>";
     html = html + "<h3> Team: "+teams[cur_team]+ "</h3>";
-    html = html + "<button onclick='startTurn()'> READY </button>";
+    html = html + "<button class='button' onclick='startTurn()'> READY </button>";
     newDiv.innerHTML = html;
     c.append(newDiv);
 }

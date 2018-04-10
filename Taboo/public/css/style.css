@@ -20,7 +20,7 @@ body a:hover {
 body a:focus, a:hover {
 	text-decoration: none;
 }
-input[type="button"], input[type="submit"] {
+input[type="button"], input[type="submit"],.button {
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -28,7 +28,7 @@ input[type="button"], input[type="submit"] {
 	-ms-transition: 0.5s all;
 }
 h1, h2, h3, h4, h5, h6 {
-	margin: 0;
+	margin: 10px;
 	padding: 0;
 	font-family: 'Josefin Sans', sans-serif;
 	/* font-family: 'Lato', sans-serif; */
@@ -147,7 +147,7 @@ textarea {
 	background-color:#fff;
 	outline:none;
 }
-input[type="submit"] {
+input[type="submit"], .button {
     display: block;
     margin: auto;
     padding: 10px 25px;
@@ -286,7 +286,7 @@ label.form-sub-label1 {
     width: 42%;
 }
 select.day {
-     width: 47px;
+     width: 90px;
 }
 input[type="email"] {
      width: 95%;
@@ -417,5 +417,10 @@ table.redTable tbody td {
     display: table-cell;
     padding: 5px 10px;
     border: 2px solid #000000;
+}
+
+.info{
+    text-align:center;
+    margin: 10px 10px;
 }
 
