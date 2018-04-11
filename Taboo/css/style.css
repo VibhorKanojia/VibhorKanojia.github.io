@@ -154,10 +154,10 @@ textarea {
 	outline:none;
 }
 input[type="submit"], .button {
-    display: block;
-    margin: auto;
-    width: 100px;
-    padding: 10px 25px;
+    display: table-cell;
+    margin: 10px;
+    width: 80px;
+    padding: 10px 10px;
     margin-top: 25px;
 	 background-color: #E91E63;
 	 border:none;
