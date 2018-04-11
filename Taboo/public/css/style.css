@@ -27,6 +27,13 @@ input[type="button"], input[type="submit"],.button {
 	-o-transition: 0.5s all;
 	-ms-transition: 0.5s all;
 }
+
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #444444;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	margin: 10px;
 	padding: 0;
@@ -411,6 +418,7 @@ table.redTable tbody td {
 }
 
 .score{
+    word-break: break-word;
     background: #0f3f4e;
     text-align: center;
     display: table-cell;

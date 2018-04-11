@@ -21,11 +21,14 @@
 	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
     <script src="javascript/taboo.js"></script>
 </head>
-<body>
+<body onload="loadCards()"> 
 	<div class="w3ls-banner">
-	<div class="heading">
-				<h1>Taboo!</h1>
-	</div>
+	    <div class="heading">
+            <audio id="tictoc">
+                <source src="audio/tic-toc.mp3" type="audio/mpeg">
+            </audio>
+		    <h1>Taboo!</h1>
+	    </div>
 		<div id="container" class="container">
 			<div class="heading" id="abc">
 				<h2>Game Configuration</h2>
@@ -106,7 +109,7 @@
                         </li>
 					</ul>
 					<input type="submit" value="Start" onclick="loadConfig('config');">
-				</form>	
+				</form>
 			</div>
 		</div>
 	</div>

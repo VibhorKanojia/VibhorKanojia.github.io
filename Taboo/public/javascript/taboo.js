@@ -74,6 +74,9 @@ function displayTime(){
 
     function setTime() {
         --totalSeconds;
+        if (totalSeconds == 20){
+            document.getElementById('tictoc').play();
+        }
         secondsLabel.innerHTML = pad(totalSeconds % 60);
         minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
         if (totalSeconds == 0){
@@ -99,19 +102,19 @@ function startTimer(){
 }
 
 
-function buttonClick(action){
+function buttonClick(elem,action){
     var cur_team = turn%teamcount;
     if (action == 'taboo'){
         scores[cur_team] = scores[cur_team] -2;
     }
     else if (action == 'pass'){
-        if (pass_count == 0){
-            return;
-        }
         if (penalty == 1){
             scores[cur_team] = scores[cur_team] -1;
         }
         pass_count = pass_count -1;
+        if (pass_count == 0){
+            elem.disabled = true;
+        }
     }
 
     else if (action == 'correct'){
@@ -153,9 +156,9 @@ function addCard(c){
     c.append(timerDiv);
     c.append(cardDiv);
     c.append(buttonDiv);
-    tabooButton.addEventListener("click", function(){buttonClick('taboo');});
-    passButton.addEventListener("click", function(){buttonClick('pass');});
-    correctButton.addEventListener("click", function(){buttonClick('correct');});
+    tabooButton.addEventListener("click", function(){buttonClick(this,'taboo');});
+    passButton.addEventListener("click", function(){buttonClick(this,'pass');});
+    correctButton.addEventListener("click", function(){buttonClick(this,'correct');});
     //alert(c.innerHTML);
     startTimer();
 }
@@ -229,10 +232,11 @@ function playTurn(){
     addInfo(c);
 }
 
+function loadCards(){
+    readTextFile(FILEPATH);
+}
 
 function loadGame(){
-    readTextFile(FILEPATH);
-    alert('done');
     for (var i = 0 ; i < teamcount; i++){
         scores.push(0);
     }
