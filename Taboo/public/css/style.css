@@ -149,6 +149,7 @@ textarea {
 input[type="submit"], .button {
     display: block;
     margin: auto;
+    width: 100px;
     padding: 10px 25px;
     margin-top: 25px;
 	 background-color: #E91E63;
@@ -392,6 +393,7 @@ table.redTable {
 table.redTable td, table.redTable th {
   font-size: 18px;
   font-weight: bold;
+  text-transform: capitalize;
   color: #FFFFFF;
   text-align: center;
   border-left: 2px solid #000000;
@@ -409,26 +411,30 @@ table.redTable tbody td {
 }
 
 .score{
+    background: #0f3f4e;
     text-align: center;
     display: table-cell;
-    padding: 5px 10px;
+    padding: 5px 0px;
     border: 2px solid #000000;
 }
 
 .info{
+    margin: 16px 0px;
+    background: #0f3f4e;
+    border: 2px solid #000;
     text-align:center;
     padding: 10px 10px;
 }
 
 .timer{
-    background: #404C62;
+    background: #0f3f4e;
     text-align: center;
     font-size: 25px;
     padding:5px 5px;
     border: 2px solid #000000;
-    margin: 10px 0px;
+    margin: 16px 0px;
 }
 
 .card{
-    margin: 10px 0px;
+    margin: 16px 0px;
 }
