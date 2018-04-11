@@ -5,7 +5,7 @@ var duration = 0;
 var penalty = 1;
 var cards = [];
 var pass_count = 0;
-var FILEPATH = "https://raw.githubusercontent.com/VibhorKanojia/VibhorKanojia.github.io/master/Taboo/public/javascript/cards.txt";
+var FILEPATH = "https://raw.githubusercontent.com/VibhorKanojia/VibhorKanojia.github.io/master/Taboo/javascript/cards.txt";
 function readTextFile(file){
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
