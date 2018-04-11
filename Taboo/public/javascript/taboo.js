@@ -1,9 +1,10 @@
 var teamcount = 0;
 var teams = [];
 var rounds = 0;
-var duration = 1;
+var duration = 0;
 var penalty = 1;
 var cards = [];
+var pass_count = 0;
 var FILEPATH = "https://raw.githubusercontent.com/VibhorKanojia/VibhorKanojia.github.io/master/Taboo/public/javascript/cards.txt";
 function readTextFile(file){
     var rawFile = new XMLHttpRequest();
@@ -65,11 +66,10 @@ function changeCard(){
 var turn = 0;
 var cur_round = 0;
 var scores = [];
-
 function displayTime(){
     var minutesLabel = document.getElementById("minutes");
     var secondsLabel = document.getElementById("seconds");
-    var totalSeconds = 30;
+    var totalSeconds = duration;
     var intervalId = setInterval(setTime, 1000);
 
     function setTime() {
@@ -102,10 +102,20 @@ function startTimer(){
 function buttonClick(action){
     var cur_team = turn%teamcount;
     if (action == 'taboo'){
-        scores[cur_team] = scores[cur_team] -1;
+        scores[cur_team] = scores[cur_team] -2;
     }
+    else if (action == 'pass'){
+        if (pass_count == 0){
+            return;
+        }
+        if (penalty == 1){
+            scores[cur_team] = scores[cur_team] -1;
+        }
+        pass_count = pass_count -1;
+    }
+
     else if (action == 'correct'){
-        scores[cur_team] = scores[cur_team] +3;
+        scores[cur_team] = scores[cur_team] +2;
     }
     document.getElementById('score_'+cur_team).innerHTML = scores[cur_team];
     changeCard();
@@ -113,7 +123,7 @@ function buttonClick(action){
 
 function addCard(c){
     var timerDiv = document.createElement('div');
-    timerDiv.innerHTML= "<label id='minutes'>01</label>:<label id='seconds'>00</label>";
+    timerDiv.innerHTML= "<label id='minutes'>00</label>:<label id='seconds'>00</label>";
     timerDiv.id = 'timer';
     timerDiv.className = 'timer';
 
@@ -212,6 +222,7 @@ function playTurn(){
         turn = 0;
         cur_round = cur_round +1;
     }
+    pass_count = 3;
     var cur_team = turn%teamcount;
 
     var c = document.getElementById('container');
