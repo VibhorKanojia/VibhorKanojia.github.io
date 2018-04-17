@@ -1,28 +1,21 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Vibhorkanojia.github.io by VibhorKanojia</title>
+---
+layout: default
+title: Technical Interview Preparation
+---
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-      <h3>Interview Preparation Checklist</h3>
-      <h4>Data Structures</h4>
-      <h4>Basic Algorithms</h4>
-      <h4>Concepts</h4>
-      <h4>System Design</h4>
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> {{ page.title }}</title>
+</head>
+<body>
+<ul>
+    {% for post in site.categories.CONTENT reversed %}
+        <li>
+            <a href="{{ post.url }}">{{post.title}}</a>
+        </li>
+    {% endfor %}
+</ul>
+</body>
 </html>
+
