@@ -219,11 +219,30 @@ function addScores(c){
     c.append(newDiv);
 }
 
+function finishGame(){
+    var c = document.getElementById('container');
+    c.innerHTML = "";
+    
+    c.innerHTML = '<h2 style="text-align:center"> Final Score: </h2>';
+    var newDiv = document.createElement('div');
+    newDiv.id = 'scoreBoard';
+    newDiv.className = 'scoreBoard';
+    for (var i = 0 ; i < teamcount; i++){
+        var scoreDiv = document.createElement('div');
+        scoreDiv.className = 'score';
+        scoreDiv.innerHTML = "<h4>"+teams[i] +"</h4><p id='score_"+i+"'>" + scores[i] + "</p>";
+        newDiv.append(scoreDiv);
+    }
+    c.append(newDiv);
+}
 
 function playTurn(){
     if (turn == 2*teamcount){
         turn = 0;
         cur_round = cur_round +1;
+    }
+    if (cur_round == rounds){
+        finishGame();
     }
     pass_count = 3;
     var cur_team = turn%teamcount;
