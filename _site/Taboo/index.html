@@ -1,0 +1,117 @@
+
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta tags -->
+	<title>Taboo</title>
+	<meta name="keywords" content="Taboo Game Free" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="javascript/taboo.js"></script>
+</head>
+<body onload="loadCards()"> 
+	<div class="w3ls-banner">
+	    <div class="heading">
+            <audio id="tictoc">
+                <source src="audio/tic-toc.mp3" type="audio/mpeg">
+            </audio>
+		    <h1>Taboo!</h1>
+	    </div>
+		<div id="container" class="container">
+			<div class="heading" id="abc">
+				<h2>Game Configuration</h2>
+			</div>
+			<div class="agile-form">
+				<form id="config" onSubmit="return false;"  method="post">
+					<ul class="field-list" id="mylist">
+						<li>
+							<label class="form-label"> 
+								#Teams: 
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+                                    <select name="day" class="day" onchange="addField(this.value);">
+										<option value="2"> 2 </option>
+										<option value="3"> 3 </option>
+										<option value="4"> 4 </option>
+                                    </select>
+                                </span>
+                            </div>
+						</li>
+
+						<li>
+							<label class="form-label"> 
+							    #Rounds:
+								<span class="form-required"> * </span>
+							</label> 
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" class="day">
+										<option value="10"> 10 </option>
+										<option value="20"> 20 </option>
+										<option value="100"> ∞ </option>
+                                    </select>
+                                </span>
+                            </div>
+						</li>
+
+						<li>
+							<label class="form-label"> 
+								Turn Duration: 
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" class="day">
+										<option value="60"> 1 minute </option>
+										<option value="120"> 2 minutes </option>
+                                    </select>
+                                </span>
+                            </div>
+						</li>
+						<li>
+							<label class="form-label">
+							   Pass Penalty:
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" class="day">
+										<option value="1"> Yes </option>
+										<option value="0"> No </option>
+									</select>
+								</span>
+							</div>
+						</li>
+                        <li>
+                            <label class='form-label'>
+                                Team Names:
+                                <span class='form-required'> * </span>
+                            </label>
+                            <div class='form-input' id="names">
+                                <input type='text' value = 'Team 1' id='team0' placeholder='' required >
+                                
+                                <input type='text' value = 'Team 2' id='team1' placeholder='' required >
+                            </div>
+                        </li>
+					</ul>
+                    <button class='button' onclick="loadConfig('config');">Start</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
