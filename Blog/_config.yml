@@ -1,2 +1,4 @@
 theme: jekyll-theme-cayman
 permalink: /:categories/:title:output_ext
+baseurl: "/Blog"
+
