@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Binary Search
+title: Morris Traversal
 ---
 
 
@@ -12,22 +12,9 @@ title: Binary Search
 <body>
 
 <h3> Introduction </h3>
-Binary Search is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful. If the search ends with the remaining half being empty, the target is not in the array.
-
-<h3> Tutorials </h3>
-
-<table>
-  <tr>
-    <th>Links</th>
-  </tr>
-  <tr>
-      <td><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Wikipedia</a></td>
-  </tr>
-  <tr>
-      <td><a href="https://www.geeksforgeeks.org/binary-search/">GeeksforGeeks</a></td>
-  </tr>
-</table>
-
+<p>As discussed before, there are various ways to traverse a binary tree. Inorder traversal is very popular as it visits nodes in a sorted manner if the tree is a binary search tree.</p>
+<p>The common implementation of inorder traversal is by recursion. But recursive implementation is not considered to be O(1) space solution due to the recursion stack; it is in fact O(logN). Inorder traversal can also be implemented iteratively by using a stack data structure, but even this implementation will have O(N) space complexity. There exists an algorithm called Morris Traversal which guarantees iterative inorder traversal of a binary tree with O(1) space complexity.</p> 
+<p> Note that this is a slightly advanced algorithm and should be considered only when the normal recursive implementation results in TLE.</p>
 
 <h3> Complexity </h3>
 <table>
@@ -36,14 +23,14 @@ Binary Search is a search algorithm that finds the position of a target value wi
     <th>Space Compexity (Worst case)</th>
   </tr>
   <tr>
-    <td>O(logN)</td>
+    <td>O(N)</td>
     <td>O(1)</td>
   </tr>
 </table>
 
-<h3> Implementation </h3>
+<h3> Specifics </h3>
 
-Before moving forward, try to implement it yourself. Both iterative and recursive implementations should not take more than 10 minutes combined.
+Morris traveral works by creating a threaded binary tree where we create a link from one node to its inorder successor
 
 <h4> Iterative </h4>
 

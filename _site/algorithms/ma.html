@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.3.0 -->
-<title>Binary Search | VibhorKanojia.github.io</title>
-<meta property="og:title" content="Binary Search" />
+<title>Morris Traversal | VibhorKanojia.github.io</title>
+<meta property="og:title" content="Morris Traversal" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="&lt;!DOCTYPE HTML&gt; Binary Search" />
-<meta property="og:description" content="&lt;!DOCTYPE HTML&gt; Binary Search" />
-<link rel="canonical" href="http://localhost:4000/algorithms/bs.html" />
-<meta property="og:url" content="http://localhost:4000/algorithms/bs.html" />
+<meta name="description" content="&lt;!DOCTYPE HTML&gt; Morris Traversal" />
+<meta property="og:description" content="&lt;!DOCTYPE HTML&gt; Morris Traversal" />
+<link rel="canonical" href="http://localhost:4000/algorithms/ma.html" />
+<meta property="og:url" content="http://localhost:4000/algorithms/ma.html" />
 <meta property="og:site_name" content="VibhorKanojia.github.io" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-03-17T00:00:00+00:00" />
+<meta property="article:published_time" content="2018-04-18T00:00:00+01:00" />
 <script type="application/ld+json">
-{"name":null,"description":"&lt;!DOCTYPE HTML&gt; Binary Search","author":null,"@type":"BlogPosting","url":"http://localhost:4000/algorithms/bs.html","publisher":null,"image":null,"headline":"Binary Search","dateModified":"2018-03-17T00:00:00+00:00","datePublished":"2018-03-17T00:00:00+00:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithms/bs.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"&lt;!DOCTYPE HTML&gt; Morris Traversal","author":null,"@type":"BlogPosting","url":"http://localhost:4000/algorithms/ma.html","publisher":null,"image":null,"headline":"Morris Traversal","dateModified":"2018-04-18T00:00:00+01:00","datePublished":"2018-04-18T00:00:00+01:00","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithms/ma.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Binary Search</h1>
+      <h1 class="project-name">Morris Traversal</h1>
       <h2 class="project-tagline"></h2>
     </section>
    
@@ -35,27 +35,14 @@
       <!DOCTYPE HTML>
 <html>
 <head>
-<title> Binary Search</title>
+<title> Morris Traversal</title>
 </head>
 <body>
 
 <h3> Introduction </h3>
-Binary Search is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful. If the search ends with the remaining half being empty, the target is not in the array.
-
-<h3> Tutorials </h3>
-
-<table>
-  <tr>
-    <th>Links</th>
-  </tr>
-  <tr>
-      <td><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Wikipedia</a></td>
-  </tr>
-  <tr>
-      <td><a href="https://www.geeksforgeeks.org/binary-search/">GeeksforGeeks</a></td>
-  </tr>
-</table>
-
+<p>As discussed before, there are various ways to traverse a binary tree. Inorder traversal is very popular as it visits nodes in a sorted manner if the tree is a binary search tree.</p>
+<p>The common implementation of inorder traversal is by recursion. But recursive implementation is not considered to be O(1) space solution due to the recursion stack; it is in fact O(logN). Inorder traversal can also be implemented iteratively by using a stack data structure, but even this implementation will have O(N) space complexity. There exists an algorithm called Morris Traversal which guarantees iterative inorder traversal of a binary tree with O(1) space complexity.</p> 
+<p> Note that this is a slightly advanced algorithm and should be considered only when the normal recursive implementation results in TLE.</p>
 
 <h3> Complexity </h3>
 <table>
@@ -64,14 +51,14 @@ Binary Search is a search algorithm that finds the position of a target value wi
     <th>Space Compexity (Worst case)</th>
   </tr>
   <tr>
-    <td>O(logN)</td>
+    <td>O(N)</td>
     <td>O(1)</td>
   </tr>
 </table>
 
-<h3> Implementation </h3>
+<h3> Specifics </h3>
 
-Before moving forward, try to implement it yourself. Both iterative and recursive implementations should not take more than 10 minutes combined.
+Morris traveral works by creating a threaded binary tree where we create a link from one node to its inorder successor
 
 <h4> Iterative </h4>
 

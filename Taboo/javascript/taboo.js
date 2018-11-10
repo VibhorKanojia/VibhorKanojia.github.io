@@ -53,6 +53,7 @@ function loadConfig(formId){
 function changeCard(){
     var c = document.getElementById('card');
     var index = Math.floor(Math.random() * 1300);
+    
     var words = cards[index].split(",");
     var html = "<table class='redTable'><th>"+ words[0] + "</th>";
     for (var i = 1; i < 6 ; i++){
