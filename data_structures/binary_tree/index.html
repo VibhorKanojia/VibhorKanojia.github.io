@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Vibhor Kanojia">
+    <meta name="description" content="Vibhor&#39;s personal space">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Binary Tree"/>
+<meta name="twitter:description" content="Unlike Arrays, Linked Lists, Stacks and Queues, which are linear data structures, trees are hierarchical data structures. Many real world datasets are hierarchical by nature and it makes more sense to store them in a tree data structure. I&#39;ll be discussing a special type of trees, Binary Trees."/>
+
+
+    <base href="http://www.example.com/data_structures/binary_tree/">
+    <title>
+  Binary Tree · vibhor kanojia
+</title>
+
+    <link rel="canonical" href="http://www.example.com/data_structures/binary_tree/">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:300,700|Source+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://www.example.com/css/coder.min.ac37073bc2826cd28ef57364a9fe339de7ebcb26dafc22fd832cb35cf5b1d048.css" integrity="sha256-rDcHO8KCbNKO9XNkqf4znefryyba/CL9gyyzXPWx0Eg=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.53" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://www.example.com">
+      vibhor kanojia
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/">Home</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/posts/">Blogs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Binary Tree</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-01-20T17:18:39&#43;05:30'>
+                January 20, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://www.example.com/tags/data-structures/">Data Structures</a></div>
+
+        </div>
+      </header>
+      <h3> Introduction </h3>
+      <div>
+        <p>Unlike Arrays, Linked Lists, Stacks and Queues, which are linear data structures, trees are hierarchical data structures. Many real world datasets are hierarchical by nature and it makes more sense to store them in a tree data structure. I'll be discussing a special type of trees, Binary Trees.</p> 
+
+<h3> Types </h3>
+Binary Trees have only one root node, and each node has at most two children nodes. Following are common types of Binary Trees:
+<ul>
+    <li><b>Full Binary Tree:</b> A Binary Tree is full if every node has zero or two children. In such a tree, #Leaves = #InternalNodes + 1</li>
+    <li><b>Complete Binary Tree:</b> A Binary Tree is complete Binary Tree if all levels are completely filled except possibly the last level and the last level has all keys as left as possible</li>
+    <li><b>Perfect Binary Tree:</b> A Binary tree is Perfect Binary Tree in which all internal nodes have two children and all leaves are at same level. Such a tree has 2<sup>h</sup>-1 nodes, where h is the height of the tree</li>
+    <li><b>Degenerate Tree:</b> A Tree where every internal node has one child. Such trees are performance-wise same as linked list</li>
+</ul>    
+
+<h3> Binary Search Trees </h3>
+<p>A Binary Search Tree additionally satisfies the binary search property, which states that the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree. This property really improves the average case time complexity for inserting, deleting, searching a node in the data structure. However, the complexity doesn't change in the worst case scenario where the tree is a Degenerate tree.</p>
+
+<table>
+  <tr>
+    <th> Operation </th>
+    <th>Time Complexity (Average Case)</th>
+    <th>Time Complexity (Worst case)</th>
+  </tr>
+  <tr>
+    <td> Insertion</td>
+    <td>O(logN)</td>
+    <td>O(N)</td>
+  </tr>
+  <tr>
+    <td> Deletion</td>
+    <td>O(logN)</td>
+    <td>O(N)</td>
+  </tr>
+  <tr>
+    <td> Search</td>
+    <td>O(logN)</td>
+    <td>O(N)</td>
+  </tr>
+</table>
+
+<h3> Implementation </h3>
+Implementation of the above three operations should not take more than 10 minutes.
+
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">65
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#fff;font-weight:bold">struct</span> Node{
+    <span style="color:#fff;font-weight:bold">int</span> key;
+    Node * left;
+    Node * right;
+    Node * parent;
+    Node(<span style="color:#fff;font-weight:bold">int</span> key, Node * parent){
+        <span style="color:#fff;font-weight:bold">this</span>-&gt;key = key;
+        left = <span style="color:#fff;font-weight:bold">NULL</span>;
+        right = <span style="color:#fff;font-weight:bold">NULL</span>;
+        <span style="color:#fff;font-weight:bold">this</span>-&gt;parent = parent;
+    }
+};
+
+Node * insert(Node * root, <span style="color:#fff;font-weight:bold">int</span> val, Node * parent){
+    <span style="color:#fff;font-weight:bold">if</span> (root == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">new</span> Node(val, parent);
+
+    <span style="color:#fff;font-weight:bold">if</span> (root-&gt;key &gt;= val) root-&gt;left = insert(root-&gt;left, val, root);
+
+    <span style="color:#fff;font-weight:bold">else</span> root-&gt;right = insert(root-&gt;right, val, root);
+
+    <span style="color:#fff;font-weight:bold">return</span> root;
+}
+
+Node * search(Node * root, <span style="color:#fff;font-weight:bold">int</span> val){
+    <span style="color:#fff;font-weight:bold">if</span> (root == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">NULL</span>;
+    
+    <span style="color:#fff;font-weight:bold">if</span> (root-&gt;key == val) <span style="color:#fff;font-weight:bold">return</span> root;
+    
+    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (root-&gt;key &gt; val) <span style="color:#fff;font-weight:bold">return</span> search(root-&gt;left, val);
+    
+    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">return</span> search(root-&gt;right, val);
+}
+
+<span style="color:#007f7f">/* This function finds the biggest node in the subtree rooted at this node */</span>
+Node * findMax(Node * node){
+   Node * cur_node = node;
+   
+   <span style="color:#fff;font-weight:bold">while</span> (cur_node-&gt;right != <span style="color:#fff;font-weight:bold">NULL</span>) cur_node = cur_node-&gt;right;
+   
+   <span style="color:#fff;font-weight:bold">return</span> cur_node;
+}
+
+<span style="color:#fff;font-weight:bold">void</span> swap(Node * n1, Node * n2){
+    <span style="color:#fff;font-weight:bold">int</span> temp = n1-&gt;key;
+    n1-&gt;key = n2-&gt;key;
+    n2-&gt;key = temp;
+}
+
+<span style="color:#007f7f">/* This function deletes the node and returns the new node that takes its place */</span>
+Node * delete(Node * node){
+    <span style="color:#fff;font-weight:bold">if</span> (node == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">NULL</span>;
+    
+    <span style="color:#fff;font-weight:bold">if</span> (node-&gt;left == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> node-&gt;right;
+    
+    <span style="color:#fff;font-weight:bold">if</span> (node-&gt;right == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> node-&gt;left;
+    
+    Node * new_root = findMax(node-&gt;left);
+    
+    swap(new_root, node);
+    
+    (new_root-&gt;parent)-&gt;right = <span style="color:#fff;font-weight:bold">delete</span>(new_root);
+    
+    <span style="color:#fff;font-weight:bold">return</span> node;
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<h3> Tree Traversal </h3>
+There are various ways to traverse a binary tree. Following are the most important traversal techniques:
+<h4> In-order traversal </h4>
+<i>Traverse the left-subtree, visit the current node, traverse the right subtree.</i>
+<p>In-order traversal is really useful when traversing a binary search tree, as the nodes are visited in a sorted manner.</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#007f7f">/* Prints the in-order traversal of a binary tree */</span>
+<span style="color:#fff;font-weight:bold">void</span> inorder(Node * node){
+    <span style="color:#fff;font-weight:bold">if</span> (node == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span>;
+
+    inorder(node-&gt;left);
+
+    cout&lt;&lt;node-&gt;key&lt;&lt;endl;
+
+    inorder(node-&gt;right);
+
+    <span style="color:#fff;font-weight:bold">return</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+
+<h4> Pre-order traversal </h4>
+<i>Visit the current node, traverse the left subtree, traverse the right subtree.</i>
+<p>Pre-order traversal is used when you want to make changes to a tree recursively starting at the parent, and moving towards the children. It can be seen as a top-down recursive approach</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#007f7f">/* Prints the pre-order traversal of a binary tree */</span>
+<span style="color:#fff;font-weight:bold">void</span> preorder(Node * node){
+    <span style="color:#fff;font-weight:bold">if</span> (node == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span>;
+
+    cout&lt;&lt;node-&gt;key&lt;&lt;endl;
+    
+    preorder(node-&gt;left);
+
+    preorder(node-&gt;right);
+
+    <span style="color:#fff;font-weight:bold">return</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<h4> Post-order traversal </h4>
+<i>Traverse the left subtree, traverse the right subtree, visit the current node.</i>
+<p>Post-order traversal is used when you want to make changes to a tree recursively starting at the children, and moving towards the parent. It can be seen as a bottom-up recursive approach</p>
+
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#007f7f">/* Prints the post-order traversal of a binary tree */</span>
+<span style="color:#fff;font-weight:bold">void</span> postorder(Node * node){
+    <span style="color:#fff;font-weight:bold">if</span> (node == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span>;
+
+    postorder(node-&gt;left);
+
+    postorder(node-&gt;right);
+
+    cout&lt;&lt;node-&gt;key&lt;&lt;endl;
+    
+    <span style="color:#fff;font-weight:bold">return</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<h4> Level-order traversal </h4>
+<i>Traverse the tree one level at a time..</i>
+<p>Level-order traversal is used when you want to visit all the nodes at height i before moving towards height i-1. Leaves have height = 0. General implementation is covered in the Breadth First Search algorithm. </p>
+
+<h3> Quiz </h3>
+<ul>
+    <li> In a full binary tree, all nodes except leaves have two children. True or False? </li>
+    <li> Every complete binary tree is a full binary tree and vice-versa? Tree or False? </li>
+    <li> If we reverse the order of nodes in pre-order traversal, we get post-order traversal. True or False? </li>
+    <li> In the delete function, instead of selecting the biggest node in the left sub-tree, we can also select the smallest node in the right sub-tree. True or False?</li>
+    <li> How would you implement the delete function if you cannot store the parent information?</li>
+    <li> If the Node struct has height variable, how would you update it while inserting or deleting a node? </li>
+</ul>
+
+<h3> Problems </h3>
+
+<p></body>
+</html></p>
+      </div>
+
+      <footer>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vkanojia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+       · 
+      [<a href="https://github.com/luizdepra/hugo-coder/tree/"></a>]
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

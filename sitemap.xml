@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://www.example.com/about/</loc>
+    <lastmod>2019-01-19T21:35:10+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/binary_tree/</loc>
+    <lastmod>2019-01-20T17:18:39+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/array/</loc>
+    <lastmod>2019-01-20T17:09:12+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/bs/</loc>
+    <lastmod>2019-01-20T00:36:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/bfs/</loc>
+    <lastmod>2019-01-20T00:35:46+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/dfs/</loc>
+    <lastmod>2019-01-20T00:35:46+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/posts/algorithms/</loc>
+    <lastmod>2019-01-19T21:39:09+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/posts/data-structures/</loc>
+    <lastmod>2019-01-19T21:39:09+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/posts/taboo/</loc>
+    <lastmod>2019-01-19T21:39:09+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/mt/</loc>
+    <lastmod>2019-01-19T00:36:50+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/recursion/</loc>
+    <lastmod>2019-01-10T00:36:45+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/ms/</loc>
+    <lastmod>2019-01-10T00:36:41+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/sieve/</loc>
+    <lastmod>2019-01-10T00:36:25+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/qs/</loc>
+    <lastmod>2019-01-10T00:36:20+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/dp/</loc>
+    <lastmod>2019-01-10T00:36:15+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/backtracking/</loc>
+    <lastmod>2019-01-10T00:35:59+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-avltree/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/algorithm/</loc>
+    <lastmod>2019-01-20T00:36:07+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/algorithms/</loc>
+    <lastmod>2019-01-20T00:36:07+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-bitset/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/data-structures/</loc>
+    <lastmod>2019-01-20T17:18:39+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/</loc>
+    <lastmod>2019-01-20T17:18:39+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-disjointset/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-graph/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-heap/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-list/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-map/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/posts/</loc>
+    <lastmod>2019-01-19T21:39:09+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-queue/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-segmenttree/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-set/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-stack/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/</loc>
+    <lastmod>2019-01-20T00:36:07+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-18-trie/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/data_structures/2018-03-16-vector/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/</loc>
+    <lastmod>2019-01-19T21:35:10+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
