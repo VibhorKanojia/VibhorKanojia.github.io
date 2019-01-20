@@ -8,6 +8,26 @@
   </url>
   
   <url>
+    <loc>http://vibhorkanojia.github.io/data_structures/vector/</loc>
+    <lastmod>2019-01-20T21:31:55+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vibhorkanojia.github.io/data_structures/heap/</loc>
+    <lastmod>2019-01-20T21:31:44+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vibhorkanojia.github.io/data_structures/avl_tree/</loc>
+    <lastmod>2019-01-20T21:28:50+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vibhorkanojia.github.io/data_structures/disjoint_set/</loc>
+    <lastmod>2019-01-20T21:19:06+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vibhorkanojia.github.io/data_structures/binary_tree/</loc>
     <lastmod>2019-01-20T17:18:39+05:30</lastmod>
   </url>
@@ -48,6 +68,11 @@
   </url>
   
   <url>
+    <loc>http://vibhorkanojia.github.io/posts/maze/</loc>
+    <lastmod>2019-01-19T21:39:09+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vibhorkanojia.github.io/algorithms/mt/</loc>
     <lastmod>2019-01-19T00:36:50+05:30</lastmod>
   </url>
@@ -83,10 +108,6 @@
   </url>
   
   <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-avltree/</loc>
-  </url>
-  
-  <url>
     <loc>http://vibhorkanojia.github.io/tags/algorithm/</loc>
     <lastmod>2019-01-20T00:36:07+05:30</lastmod>
     <priority>0</priority>
@@ -99,44 +120,20 @@
   </url>
   
   <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-bitset/</loc>
-  </url>
-  
-  <url>
     <loc>http://vibhorkanojia.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://vibhorkanojia.github.io/tags/data-structures/</loc>
-    <lastmod>2019-01-20T17:18:39+05:30</lastmod>
+    <lastmod>2019-01-20T21:31:55+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://vibhorkanojia.github.io/data_structures/</loc>
-    <lastmod>2019-01-20T17:18:39+05:30</lastmod>
+    <lastmod>2019-01-20T21:31:55+05:30</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-disjointset/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-graph/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-heap/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-list/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-map/</loc>
   </url>
   
   <url>
@@ -146,33 +143,9 @@
   </url>
   
   <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-queue/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-segmenttree/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-set/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-stack/</loc>
-  </url>
-  
-  <url>
     <loc>http://vibhorkanojia.github.io/tags/</loc>
     <lastmod>2019-01-20T00:36:07+05:30</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-18-trie/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vibhorkanojia.github.io/data_structures/2018-03-16-vector/</loc>
   </url>
   
   <url>

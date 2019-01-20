@@ -6,10 +6,50 @@
     <description>Recent content in Data Structures on vibhor kanojia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Jan 2019 17:18:39 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jan 2019 21:31:55 +0530</lastBuildDate>
     
 	<atom:link href="http://vibhorkanojia.github.io/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vector</title>
+      <link>http://vibhorkanojia.github.io/data_structures/vector/</link>
+      <pubDate>Sun, 20 Jan 2019 21:31:55 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/data_structures/vector/</guid>
+      <description>&lt;p&gt;&lt;p&gt;Vectors are same as dynamic arrays with the ability to resize themselves automatically when an element is inserted or deleted, with their storage being handled automatically by the container. Vector elements are placed in contiguous storage so that they can be accessed and traversed using iterators in O(1) time.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Heap</title>
+      <link>http://vibhorkanojia.github.io/data_structures/heap/</link>
+      <pubDate>Sun, 20 Jan 2019 21:31:44 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/data_structures/heap/</guid>
+      <description>&lt;p&gt;Many a times we need a data structure which can be used to access elements based on certain criteria, for e.g., from smallest to largest element. A Heap or A Priority Queue is a data structure which stores elements in an orderly fashion, such that the element with highest priority is at the top of the heap.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AVL Tree</title>
+      <link>http://vibhorkanojia.github.io/data_structures/avl_tree/</link>
+      <pubDate>Sun, 20 Jan 2019 21:28:50 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/data_structures/avl_tree/</guid>
+      <description>&lt;p&gt;Binary Trees provide O(logN) average case time complexity for insert, delete, and search operations. But depending upon the order of insert, we might form an unbalanced tree which makes the time complexity linear. AVL Trees are self-balancing binary trees that can guarantee O(logN) time complexity even in the worst case. The only drawback is that the structure of the tree changes as we add more and more nodes. &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Disjoint Set</title>
+      <link>http://vibhorkanojia.github.io/data_structures/disjoint_set/</link>
+      <pubDate>Sun, 20 Jan 2019 21:19:06 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/data_structures/disjoint_set/</guid>
+      <description>&lt;p&gt;Facebook has more than 2 billion users and, very often, given two users A and B, Facebook needs to find if A and B are connected. Such information can be really useful in features like friend suggestions, privacy protections, and various data analysis tasks.&lt;/p&gt;
+&lt;p&gt;One way to approach this problem is by doing a BFS, starting with A as source node and expanding the graph by visiting A&#39;s friends and stopping the search when we reach B. This approach will work for small datasets, but when you consider over 2 billion users each having around 500 friends, BFS ends up using a lot of space, and unnecessary expansion of graph leads to performance degradation. For example, imagine a scenario where A is infact not connnected to B! &lt;/p&gt;
+&lt;p&gt;One can think of various optimizations to improve the performance, and develop better heuristics to guide the graph expansion (A* algorithm), but it still won&#39;t give the satisfactory results. Keep in mind that the graph is not static, and the graph may have new connections over time.&lt;/p&gt;
+&lt;p&gt; What if we could answer this query in O(logN) time? Even better, what if we could answer this query in O(1) time?&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Disjoint Sets to the rescue&lt;/i&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Binary Tree</title>

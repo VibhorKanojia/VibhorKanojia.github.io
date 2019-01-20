@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Vibhor Kanojia">
+    <meta name="description" content="Vibhor&#39;s personal space">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AVL Tree"/>
+<meta name="twitter:description" content="Binary Trees provide O(logN) average case time complexity for insert, delete, and search operations. But depending upon the order of insert, we might form an unbalanced tree which makes the time complexity linear. AVL Trees are self-balancing binary trees that can guarantee O(logN) time complexity even in the worst case. The only drawback is that the structure of the tree changes as we add more and more nodes. "/>
+
+
+    <base href="http://vibhorkanojia.github.io/data_structures/avl_tree/">
+    <title>
+  AVL Tree · vibhor kanojia
+</title>
+
+    <link rel="canonical" href="http://vibhorkanojia.github.io/data_structures/avl_tree/">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:300,700|Source+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://vibhorkanojia.github.io/css/coder.min.ac37073bc2826cd28ef57364a9fe339de7ebcb26dafc22fd832cb35cf5b1d048.css" integrity="sha256-rDcHO8KCbNKO9XNkqf4znefryyba/CL9gyyzXPWx0Eg=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="http://vibhorkanojia.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://vibhorkanojia.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.53" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://vibhorkanojia.github.io">
+      vibhor kanojia
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://vibhorkanojia.github.io/">Home</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://vibhorkanojia.github.io/posts/">Blogs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://vibhorkanojia.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">AVL Tree</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-01-20T21:28:50&#43;05:30'>
+                January 20, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://vibhorkanojia.github.io/tags/data-structures/">Data Structures</a></div>
+
+        </div>
+      </header>
+      <h3> Introduction </h3>
+      <div>
+        <p>Binary Trees provide O(logN) average case time complexity for insert, delete, and search operations. But depending upon the order of insert, we might form an unbalanced tree which makes the time complexity linear. AVL Trees are self-balancing binary trees that can guarantee O(logN) time complexity even in the worst case. The only drawback is that the structure of the tree changes as we add more and more nodes. </p> 
+
+<h3> Specifics </h3>
+
+<p>An AVL tree has all the properties of a normal binary tree. But in order to keep the tree balanced, an AVL tree has the following extra properties:</p>
+<ol>
+    <li> The sub-trees of every node differ in height by at most one </li>
+    <li> Every sub-tree is an AVL tree </li>
+</ol>
+
+Every time the insertion or deletion of a node violates these properties, it changes the structure to make itself balanced.
+
+<h3> Complexities </h3>
+<table>
+  <tr>
+    <th> Operation </th>
+    <th>Time Complexity (Average Case)</th>
+    <th>Time Complexity (Worst case)</th>
+  </tr>
+  <tr>
+    <td> Insertion</td>
+    <td>O(logN)</td>
+    <td>O(logN)</td>
+  </tr>
+  <tr>
+    <td> Deletion</td>
+    <td>O(logN)</td>
+    <td>O(logN)</td>
+  </tr>
+  <tr>
+    <td> Search</td>
+    <td>O(logN)</td>
+    <td>O(logN)</td>
+  </tr>
+</table>
+
+<h3> Implementation </h3>
+<p>w -> Last node that was inserted.<br>
+z -> Starting from w and going up, the first node that is unbalanced.<br>
+y -> Child of z which is in the direction of w.<br>
+x -> Child of y which is in the direction of w.</p>
+
+<p>While performing a standard BST insertion of w, we can encounter four cases that violate the properties of an AVL tree:</p>
+
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">90
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#fff;font-weight:bold">struct</span> Node{
+    <span style="color:#fff;font-weight:bold">int</span> key;
+    <span style="color:#fff;font-weight:bold">int</span> height;
+    Node * left;
+    Node * right;
+    
+    Node(<span style="color:#fff;font-weight:bold">int</span> key){
+        <span style="color:#fff;font-weight:bold">this</span>-&gt;key = key;
+        <span style="color:#fff;font-weight:bold">this</span>-&gt;height= <span style="color:#ff0;font-weight:bold">0</span>;
+        left = <span style="color:#fff;font-weight:bold">NULL</span>;
+        right = <span style="color:#fff;font-weight:bold">NULL</span>;
+    }
+};
+
+
+<span style="color:#fff;font-weight:bold">int</span> getHeight(Node * root){
+    <span style="color:#fff;font-weight:bold">if</span> (root == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> -<span style="color:#ff0;font-weight:bold">1</span>;
+    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">return</span> root-&gt;height;
+}
+
+<span style="color:#fff;font-weight:bold">void</span> rotateRight(Node * z){
+    Node * y = z-&gt;left;
+    z-&gt;left = y-&gt;right;
+    y-&gt;right = z;
+
+    z-&gt;height = max(getHeight(z-&gt;left), getHeight(z-&gt;right)) +<span style="color:#ff0;font-weight:bold">1</span>;
+    y-&gt;height = max(getHeight(y-&gt;left), getHeight(y-&gt;right)) +<span style="color:#ff0;font-weight:bold">1</span>;
+    <span style="color:#fff;font-weight:bold">return</span> y;
+}
+
+
+
+<span style="color:#fff;font-weight:bold">void</span> rotateLeft(Node * z){
+    Node * y = z-&gt;right;
+    z-&gt;right = y-&gt;left;
+    y-&gt;left = z;
+
+    z-&gt;height = max(getHeight(z-&gt;left), getHeight(z-&gt;right)) +<span style="color:#ff0;font-weight:bold">1</span>;
+    y-&gt;height = max(getHeight(y-&gt;left), getHeight(y-&gt;right)) +<span style="color:#ff0;font-weight:bold">1</span>;
+    <span style="color:#fff;font-weight:bold">return</span> y;
+}
+
+
+Node * insert(Node * root, <span style="color:#fff;font-weight:bold">int</span> val){
+
+    <span style="color:#fff;font-weight:bold">if</span> (root == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">new</span> Node(val);
+
+    <span style="color:#fff;font-weight:bold">if</span> (root-&gt;key &gt;= val) root-&gt;left = insert(root-&gt;left, val, root);
+
+    <span style="color:#fff;font-weight:bold">else</span> root-&gt;right = insert(root-&gt;right, val, root);
+
+    root-&gt;height = max(getHeight(root-&gt;left), getHeight(root-&gt;right)) + <span style="color:#ff0;font-weight:bold">1</span>;
+
+    <span style="color:#fff;font-weight:bold">int</span> difference = getHeight(root-&gt;left) - getHeight(root-&gt;right);
+
+    <span style="color:#007f7f">//LL case
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> (difference &gt; <span style="color:#ff0;font-weight:bold">1</span> &amp;&amp; val &lt;= (root-&gt;left)-&gt;key){
+        root = rotateRight(root);
+    }
+
+    <span style="color:#007f7f">//LR case
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (difference &gt; <span style="color:#ff0;font-weight:bold">1</span> &amp;&amp; val &gt; (root-&gt;left)-&gt;key){
+        root-&gt;left = rotateLeft(root-&gt;left);
+        root = rotateRight(root);
+    }
+
+    <span style="color:#007f7f">//RR case
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (difference &lt; -<span style="color:#ff0;font-weight:bold">1</span> &amp;&amp; val &gt; (root-&gt;right)-&gt;key){
+        root= rotateLeft(root);
+    }
+
+    <span style="color:#007f7f">//RL case
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (difference &lt; -<span style="color:#ff0;font-weight:bold">1</span> &amp;&amp; val &lt;= (root-&gt;right)-&gt;key){
+        root-&gt;right = rotateRight(root-&gt;right);
+        root = rotateLeft(root);
+    }
+
+    <span style="color:#fff;font-weight:bold">return</span> root;
+}
+
+Node * search(Node * root, <span style="color:#fff;font-weight:bold">int</span> val){
+    <span style="color:#fff;font-weight:bold">if</span> (root == <span style="color:#fff;font-weight:bold">NULL</span>) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">NULL</span>;
+    
+    <span style="color:#fff;font-weight:bold">if</span> (root-&gt;key == val) <span style="color:#fff;font-weight:bold">return</span> root;
+    
+    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (root-&gt;key &gt; val) <span style="color:#fff;font-weight:bold">return</span> search(root-&gt;left, val);
+    
+    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">return</span> search(root-&gt;right, val);
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<h3> Problems </h3>
+
+<p></body>
+</html></p>
+      </div>
+
+      <footer>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vkanojia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
