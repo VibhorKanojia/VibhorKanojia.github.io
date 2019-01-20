@@ -2,150 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data_structures on vibhor kanojia</title>
-    <link>http://www.example.com/data_structures/</link>
+    <link>http://vibhorkanojia.github.io/data_structures/</link>
     <description>Recent content in Data_structures on vibhor kanojia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 20 Jan 2019 17:18:39 +0530</lastBuildDate>
     
-	<atom:link href="http://www.example.com/data_structures/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vibhorkanojia.github.io/data_structures/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Binary Tree</title>
-      <link>http://www.example.com/data_structures/binary_tree/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/binary_tree/</link>
       <pubDate>Sun, 20 Jan 2019 17:18:39 +0530</pubDate>
       
-      <guid>http://www.example.com/data_structures/binary_tree/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/binary_tree/</guid>
       <description>&lt;p&gt;Unlike Arrays, Linked Lists, Stacks and Queues, which are linear data structures, trees are hierarchical data structures. Many real world datasets are hierarchical by nature and it makes more sense to store them in a tree data structure. I&#39;ll be discussing a special type of trees, Binary Trees.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Array</title>
-      <link>http://www.example.com/data_structures/array/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/array/</link>
       <pubDate>Sun, 20 Jan 2019 17:09:12 +0530</pubDate>
       
-      <guid>http://www.example.com/data_structures/array/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/array/</guid>
       <description>&lt;p&gt;In C++, arrays can be used to store a collection of elements having the same type, where each element is uniquely identified by an index. Elements in an array are stored consecutively, and hence, given the address of the first element, the address of each element can be calculated using a mathematical formula. This provides O(1) access to each element of the array.&lt;/p&gt;
 &lt;p&gt;The size of an array means the number of elements it can hold.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AVL Trees</title>
-      <link>http://www.example.com/data_structures/2018-03-18-avltree/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-avltree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-avltree/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-avltree/</guid>
       <description>{{ page.title }}    Introduction  Binary Trees provide O(logN) average case time complexity for insert, delete, and search operations. But depending upon the order of insert, we might form an unbalanced tree which makes the time complexity linear. AVL Trees are self-balancing binary trees that can guarantee O(logN) time complexity even in the worst case. The only drawback is that the structure of the tree changes as we add more and more nodes.</description>
     </item>
     
     <item>
       <title>Bitset</title>
-      <link>http://www.example.com/data_structures/2018-03-18-bitset/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-bitset/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-bitset/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-bitset/</guid>
       <description>   {{ page.title }}    Introduction   Specifics   Implementation    </description>
     </item>
     
     <item>
       <title>Disjoint Set</title>
-      <link>http://www.example.com/data_structures/2018-03-18-disjointset/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-disjointset/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-disjointset/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-disjointset/</guid>
       <description>{{ page.title }}    Introduction  Facebook has more than 2 billion users and, very often, given two users A and B, Facebook needs to find if A and B are connected. Such information can be really useful in features like friend suggestions, privacy protections, and various data analysis tasks.
 One way to approach this problem is by doing a BFS, starting with A as source node and expanding the graph by visiting A&#39;s friends and stopping the search when we reach B.</description>
     </item>
     
     <item>
       <title>Graph</title>
-      <link>http://www.example.com/data_structures/2018-03-18-graph/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-graph/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-graph/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-graph/</guid>
       <description>Graph</description>
     </item>
     
     <item>
       <title>Heaps</title>
-      <link>http://www.example.com/data_structures/2018-03-18-heap/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-heap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-heap/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-heap/</guid>
       <description>{{ page.title }}    Introduction  Many a times we need a data structure which can be used to access elements based on certain criteria, for e.g., from smallest to largest element. A Heap or A Priority Queue is a data structure which stores elements in an orderly fashion, such that the element with highest priority is at the top of the heap.
  Specifics  Heaps are implemented using an array/vector with the root node at index 0.</description>
     </item>
     
     <item>
       <title>Linked Lists</title>
-      <link>http://www.example.com/data_structures/2018-03-18-list/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-list/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-list/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Map</title>
-      <link>http://www.example.com/data_structures/2018-03-18-map/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-map/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-map/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-map/</guid>
       <description>Map</description>
     </item>
     
     <item>
       <title>Queue</title>
-      <link>http://www.example.com/data_structures/2018-03-18-queue/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-queue/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-queue/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-queue/</guid>
       <description>Queue</description>
     </item>
     
     <item>
       <title>Segment Tree</title>
-      <link>http://www.example.com/data_structures/2018-03-18-segmenttree/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-segmenttree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-segmenttree/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-segmenttree/</guid>
       <description>Segment Tree</description>
     </item>
     
     <item>
       <title>Set</title>
-      <link>http://www.example.com/data_structures/2018-03-18-set/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-set/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-set/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-set/</guid>
       <description>Set</description>
     </item>
     
     <item>
       <title>Stack</title>
-      <link>http://www.example.com/data_structures/2018-03-18-stack/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-stack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-stack/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-stack/</guid>
       <description>Stack</description>
     </item>
     
     <item>
       <title>Trie</title>
-      <link>http://www.example.com/data_structures/2018-03-18-trie/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-18-trie/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-18-trie/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-18-trie/</guid>
       <description>Trie</description>
     </item>
     
     <item>
       <title>Vectors</title>
-      <link>http://www.example.com/data_structures/2018-03-16-vector/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/2018-03-16-vector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/data_structures/2018-03-16-vector/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/2018-03-16-vector/</guid>
       <description>   {{ page.title }}    Introduction  Vectors are same as dynamic arrays with the ability to resize themselves automatically when an element is inserted or deleted, with their storage being handled automatically by the container. Vector elements are placed in contiguous storage so that they can be accessed and traversed using iterators in O(1) time.  Specifics  Vector overcomes most of the drawbacks of arrays:  Adding an element at the end can be done in O(1) time Removing the last element can also be done in O(1) time Inserting or erasing at the beginning or in the middle is linear in time   Implementation  Below are some of the frequently used member functions of the vector class: {% highlight c++ linenos %} vector A; /*defines a vector*/ vector A(20,0) /* defines a vector of size 20; all elements are initialized to 0 */ vector::size(); /* returns the size of a vector */ vector::empty(); /* returns true if the vector is empty; else false */ vector::erase(); /* erases all the elements from the vector */ vector::push_back(int elem); /* adds elem at the end of the vector; effectively increases the size by 1 */ vector::pop_back(); /* removes the last element from the vector; effectively decreases the size by 1 */ vector::insert(iterator pos, int elem); /* insert elem at position pos; O(N) time complexity; */ {% endhighlight %}  Problems    </description>
     </item>
     

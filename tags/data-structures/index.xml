@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Structures on vibhor kanojia</title>
-    <link>http://www.example.com/tags/data-structures/</link>
+    <link>http://vibhorkanojia.github.io/tags/data-structures/</link>
     <description>Recent content in Data Structures on vibhor kanojia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 20 Jan 2019 17:18:39 +0530</lastBuildDate>
     
-	<atom:link href="http://www.example.com/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vibhorkanojia.github.io/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Binary Tree</title>
-      <link>http://www.example.com/data_structures/binary_tree/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/binary_tree/</link>
       <pubDate>Sun, 20 Jan 2019 17:18:39 +0530</pubDate>
       
-      <guid>http://www.example.com/data_structures/binary_tree/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/binary_tree/</guid>
       <description>&lt;p&gt;Unlike Arrays, Linked Lists, Stacks and Queues, which are linear data structures, trees are hierarchical data structures. Many real world datasets are hierarchical by nature and it makes more sense to store them in a tree data structure. I&#39;ll be discussing a special type of trees, Binary Trees.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Array</title>
-      <link>http://www.example.com/data_structures/array/</link>
+      <link>http://vibhorkanojia.github.io/data_structures/array/</link>
       <pubDate>Sun, 20 Jan 2019 17:09:12 +0530</pubDate>
       
-      <guid>http://www.example.com/data_structures/array/</guid>
+      <guid>http://vibhorkanojia.github.io/data_structures/array/</guid>
       <description>&lt;p&gt;In C++, arrays can be used to store a collection of elements having the same type, where each element is uniquely identified by an index. Elements in an array are stored consecutively, and hence, given the address of the first element, the address of each element can be calculated using a mathematical formula. This provides O(1) access to each element of the array.&lt;/p&gt;
 &lt;p&gt;The size of an array means the number of elements it can hold.&lt;/p&gt;</description>
     </item>

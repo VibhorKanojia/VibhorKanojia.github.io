@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on vibhor kanojia</title>
-    <link>http://www.example.com/posts/</link>
+    <link>http://vibhorkanojia.github.io/posts/</link>
     <description>Recent content in Posts on vibhor kanojia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 19 Jan 2019 21:39:09 +0530</lastBuildDate>
     
-	<atom:link href="http://www.example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vibhorkanojia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Algorithms</title>
-      <link>http://www.example.com/posts/algorithms/</link>
+      <link>http://vibhorkanojia.github.io/posts/algorithms/</link>
       <pubDate>Sat, 19 Jan 2019 21:39:09 +0530</pubDate>
       
-      <guid>http://www.example.com/posts/algorithms/</guid>
+      <guid>http://vibhorkanojia.github.io/posts/algorithms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Structures</title>
-      <link>http://www.example.com/posts/data-structures/</link>
+      <link>http://vibhorkanojia.github.io/posts/data-structures/</link>
       <pubDate>Sat, 19 Jan 2019 21:39:09 +0530</pubDate>
       
-      <guid>http://www.example.com/posts/data-structures/</guid>
+      <guid>http://vibhorkanojia.github.io/posts/data-structures/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Taboo</title>
-      <link>http://www.example.com/posts/taboo/</link>
+      <link>http://vibhorkanojia.github.io/posts/taboo/</link>
       <pubDate>Sat, 19 Jan 2019 21:39:09 +0530</pubDate>
       
-      <guid>http://www.example.com/posts/taboo/</guid>
+      <guid>http://vibhorkanojia.github.io/posts/taboo/</guid>
       <description></description>
     </item>
     

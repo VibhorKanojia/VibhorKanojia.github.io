@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithm on vibhor kanojia</title>
-    <link>http://www.example.com/tags/algorithm/</link>
+    <link>http://vibhorkanojia.github.io/tags/algorithm/</link>
     <description>Recent content in Algorithm on vibhor kanojia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 20 Jan 2019 00:36:07 +0530</lastBuildDate>
     
-	<atom:link href="http://www.example.com/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vibhorkanojia.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Binary Search</title>
-      <link>http://www.example.com/algorithms/bs/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/bs/</link>
       <pubDate>Sun, 20 Jan 2019 00:36:07 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/bs/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/bs/</guid>
       <description>&lt;p&gt;Binary Search is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful. If the search ends with the remaining half being empty, the target is not in the array.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Depth First Search</title>
-      <link>http://www.example.com/algorithms/dfs/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/dfs/</link>
       <pubDate>Sun, 20 Jan 2019 00:35:46 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/dfs/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/dfs/</guid>
       <description>&lt;p&gt;Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. One starts at the root (selecting some arbitrary node as the root in the case of a graph) and explores as far as possible along each branch before backtracking.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Recursion</title>
-      <link>http://www.example.com/algorithms/recursion/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/recursion/</link>
       <pubDate>Thu, 10 Jan 2019 00:36:45 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/recursion/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/recursion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Merge Sort</title>
-      <link>http://www.example.com/algorithms/ms/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/ms/</link>
       <pubDate>Thu, 10 Jan 2019 00:36:41 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/ms/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/ms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Prime Number Generation / Sieve</title>
-      <link>http://www.example.com/algorithms/sieve/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/sieve/</link>
       <pubDate>Thu, 10 Jan 2019 00:36:25 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/sieve/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/sieve/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Quick Sort/Select</title>
-      <link>http://www.example.com/algorithms/qs/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/qs/</link>
       <pubDate>Thu, 10 Jan 2019 00:36:20 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/qs/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/qs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dynamic Programming</title>
-      <link>http://www.example.com/algorithms/dp/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/dp/</link>
       <pubDate>Thu, 10 Jan 2019 00:36:15 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/dp/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/dp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Backtracking</title>
-      <link>http://www.example.com/algorithms/backtracking/</link>
+      <link>http://vibhorkanojia.github.io/algorithms/backtracking/</link>
       <pubDate>Thu, 10 Jan 2019 00:35:59 +0530</pubDate>
       
-      <guid>http://www.example.com/algorithms/backtracking/</guid>
+      <guid>http://vibhorkanojia.github.io/algorithms/backtracking/</guid>
       <description></description>
     </item>
     
