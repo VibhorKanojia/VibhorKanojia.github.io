@@ -328,23 +328,23 @@
 </div>
 
 <h5> Heapify </h5>
-<p>To heapify an array means to convert an array into a heap. To do this, we start at the bottom ignoring all the leaves, and call shiftDown function on all the non-leaf nodes. But looking at the recursive call one may mistakenly assume it to be a O(NlogN) complexity method. But there is an upper bound on the number of steps a node can move downwards which makes this function have O(N) complexity.<br>
+<p>To heapify an array means to convert an array into a heap. To do this, we start at the bottom ignoring all the leaves, and call shiftDown function on all the non-leaf nodes. But looking at the recursive call one may mistakenly assume it to be a O(NlogN) complexity method. But there is an upper bound on the number of steps a node can move downwards which makes this function have O(N) complexity.</p>
 
-N -> Number of nodes in the heap;<br>
-H -> Height of the heap;<br>
-2<sup>i</sup> -> Nodes at level i (root is at level 0);<br>
+<i>N: Number of nodes in the heap</i><br>
+<i>H: Height of the heap</i><br>
+<i>2<sup>i</sup> -> Nodes at level i (root is at level 0)</i><br>
+<br>
+<i>Therefore, number of operations involved are:</i><br>
 
-Therefore, number of operations involved are:<br>
-
-#O = 1*2<sup>H-1</sup> + 2*2<sup>H-2</sup> + 3*2<sup>H-3</sup> ... H*2<sup>0</sup>.<br>
-
-#O = 2<sup>H</sup>* i/2<sup>i</sup>  (i = [1,H]). <br>
-
-Now, i/2<sup>i</sup>  (i = [1,H])  <  i/2<sup>i</sup>  (i = [1,inf]). <br>
-Right hand side is an AGP which sums up to 1. <br>
-Hence, i/2<sup>i</sup>  (i = [1,H]) < 1. <br>
-
-#O = 2<sup>H</sup> = O(N) (H = log(N)/log(2)) <br>
+<i>#O = 1*2<sup>H-1</sup> + 2*2<sup>H-2</sup> + 3*2<sup>H-3</sup> ... H*2<sup>0</sup>.</i><br>
+<i>#O = 2<sup>H</sup>* i/2<sup>i</sup>  (i = [1,H]).</i><br>
+<i>Now,</i><br>
+<i>i/2<sup>i</sup>  (i = [1,H])  <  i/2<sup>i</sup>  (i = [1,inf]). </i><br>
+<i>Right hand side is an AGP which sums up to 1. </i><br>
+<i>Hence,</i><br>
+<i>i/2<sup>i</sup>  (i = [1,H]) < 1.</i> <br>
+<i>#O = 2<sup>H</sup></i><br>
+<i>#O = O(N) (H = log(N)/log(2)) </i><br>
 
 
 

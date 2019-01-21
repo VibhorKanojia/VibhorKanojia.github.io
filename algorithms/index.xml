@@ -21,6 +21,17 @@
     </item>
     
     <item>
+      <title>Merge Sort</title>
+      <link>http://vibhorkanojia.github.io/algorithms/ms/</link>
+      <pubDate>Sun, 20 Jan 2019 00:36:07 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/algorithms/ms/</guid>
+      <description>&lt;p&gt;&lt;p&gt;Merge Sort is one of the prime examples of a class of algorithms known as Divide and conquer. The basic idea of such algorithms is to divide the space into two equal halves recursively until they become small enough to be solved directly, then come up with a way to combine the solution of these smaller halves.
+&lt;p&gt; Based on this idea, merge sort recursively divides the input array and sort the individual sub arrays. Then later, combine the two sorted halves.
+&lt;p&gt; The implementation of this algorithm is very important and often serves as the base to solve a variety of problems.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Breadth First Search</title>
       <link>http://vibhorkanojia.github.io/algorithms/bfs/</link>
       <pubDate>Sun, 20 Jan 2019 00:35:46 +0530</pubDate>
@@ -55,15 +66,6 @@
       <pubDate>Thu, 10 Jan 2019 00:36:45 +0530</pubDate>
       
       <guid>http://vibhorkanojia.github.io/algorithms/recursion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Merge Sort</title>
-      <link>http://vibhorkanojia.github.io/algorithms/ms/</link>
-      <pubDate>Thu, 10 Jan 2019 00:36:41 +0530</pubDate>
-      
-      <guid>http://vibhorkanojia.github.io/algorithms/ms/</guid>
       <description></description>
     </item>
     
