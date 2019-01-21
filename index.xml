@@ -166,20 +166,20 @@
     </item>
     
     <item>
+      <title>Prime Number Generation / Sieve</title>
+      <link>http://vibhorkanojia.github.io/algorithms/sieve/</link>
+      <pubDate>Sat, 19 Jan 2019 00:36:50 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/algorithms/sieve/</guid>
+      <description>&lt;p&gt;Sometimes we encounter problems which are mathematical in nature, and involve concepts of number theory. More often than not, solving these problems require us to use prime numbers. Hence, we should know the Sieve (Sieve of Eratosthenes) algorithm to be able to generate prime numbers efficiently.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Recursion</title>
       <link>http://vibhorkanojia.github.io/algorithms/recursion/</link>
       <pubDate>Thu, 10 Jan 2019 00:36:45 +0530</pubDate>
       
       <guid>http://vibhorkanojia.github.io/algorithms/recursion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prime Number Generation / Sieve</title>
-      <link>http://vibhorkanojia.github.io/algorithms/sieve/</link>
-      <pubDate>Thu, 10 Jan 2019 00:36:25 +0530</pubDate>
-      
-      <guid>http://vibhorkanojia.github.io/algorithms/sieve/</guid>
       <description></description>
     </item>
     
