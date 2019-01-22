@@ -11,7 +11,8 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quick Sort/Select"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Quick Sort is an incredibly interesting sorting algorithm. The worst case time complexity of this algorithm is O(N2), but when implemented well, it can be about two or three times faster than its main competitors, merge sort and heap sort. Another good thing is that quick sort is an in-place sorting algorithm.
+The only drawback is that the efficient implementations of this algorithm are not stable in nature, i.e., it doesn&rsquo;t preserve the relative order of equal elements in the output."/>
 
 
     <base href="http://vibhorkanojia.github.io/algorithms/qs/">
@@ -88,13 +89,13 @@
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2019-01-10T00:36:20&#43;05:30'>
-                January 10, 2019
+              <time datetime='2019-01-20T00:36:07&#43;05:30'>
+                January 20, 2019
               </time>
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              0 minutes read
+              4 minutes read
             </span>
           </div>
           
@@ -106,7 +107,241 @@
       </header>
       <h3> Introduction </h3>
       <div>
-        
+        <p><p>Quick Sort is an incredibly interesting sorting algorithm. The worst case time complexity of this algorithm is O(N<sup>2</sup>), but when implemented well, it can be about two or three times faster than its main competitors, merge sort and heap sort. Another good thing is that quick sort is an in-place sorting algorithm.
+<p>The only drawback is that the efficient implementations of this algorithm are not stable in nature, i.e., it doesn&rsquo;t preserve the relative order of equal elements in the output.</p>
+
+<h3> Tutorials </h3>
+
+<table>
+  <tr>
+    <th>Links</th>
+  </tr>
+  <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Quicksort">Wikipedia</a></td>
+  </tr>
+  <tr>
+      <td><a href="https://www.geeksforgeeks.org/quick-sort/">GeeksforGeeks</a></td>
+  </tr>
+</table>
+
+<p><h3> Complexity </h3>
+<table>
+  <tr>
+    <th>Time Complexity (Average case)</th>
+    <th>Space Compexity (Average case)</th>
+    <th>Time Complexity (Worst case)</th>
+    <th>Space Compexity (Worst case)</th>
+  </tr>
+  <tr>
+    <td>O(NlogN)</td>
+    <td>O(logN)</td>
+    <td>O(N<sup>2</sup>)</td>
+    <td>O(N) / O(logN)</td>
+  </tr>
+</table></p>
+
+<p><h3> Specifics </h3>
+<p> Quick sort works by selecting a pivot element in each step, and putting it on its correct place, such that, all the elements smaller than the pivot are on one side and all the elements greater than the pivot on the other. This step takes O(N) operations. The same step is repeated on the two smaller halves.
+<p> In this implementation, selection of pivot is the most important step, ideally we would want the pivot to roughly divide the input space into two equal halves, which would result in O(NlogN) complexity. However, in the worst case, we could select the maximum/minimum element as pivot and end up putting all the elements on the same side of the pivot. This would lead to a time complexity of O(N<sup>2</sup>)</p>
+
+<p><h3> Implementation </h3>
+<p>We&rsquo;ll be discussing the recursive implementations of quick sort. Note that it can also be implemented iteratively by using auxillary stack
+to mimic the function stack.</p>
+
+<p><p><b>Basic Implementation:</b> uses O(N) space in the worst case
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">46
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#fff;font-weight:bold">void</span> swap(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp; input, <span style="color:#fff;font-weight:bold">int</span> i1, <span style="color:#fff;font-weight:bold">int</span> i2){
+    <span style="color:#fff;font-weight:bold">int</span> temp = input[i1];
+    input[i1] = input[i2];
+    input[i2] = temp;
+}
+
+
+<span style="color:#007f7f">/* This function takes last element as pivot, places
+</span><span style="color:#007f7f">   the pivot element at its correct position in sorted
+</span><span style="color:#007f7f">   array, and places all smaller (smaller than pivot)
+</span><span style="color:#007f7f">   to left of pivot and all greater elements to right
+</span><span style="color:#007f7f">   of pivot. At the end, it returns the position where 
+</span><span style="color:#007f7f">   the pivot was placed. */</span>
+
+<span style="color:#fff;font-weight:bold">int</span> partition(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp; input, <span style="color:#fff;font-weight:bold">int</span> start, <span style="color:#fff;font-weight:bold">int</span> end){ 
+    <span style="color:#007f7f">//We are selecting the last element as our pivot in each step
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">int</span> pivot = end;
+    
+    <span style="color:#007f7f">//index stores the position where the next smaller element will go
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">int</span> index = start;
+
+    <span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">int</span> i = start; i &lt;=end; i++){
+        <span style="color:#fff;font-weight:bold">if</span> (input[i] &lt; array[pivot]){
+            swap(input, i, index);
+            index++;
+        }
+    }
+    <span style="color:#007f7f">//once we put all the smaller elements in the beginning of the array,
+</span><span style="color:#007f7f"></span>    <span style="color:#007f7f">//we put the pivot element in its correct position
+</span><span style="color:#007f7f"></span>    swap(input, pivot, index);
+    <span style="color:#fff;font-weight:bold">return</span> index;
+}
+
+<span style="color:#007f7f">//Note that both start and end are inclusive in this implementation
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">void</span> quickSort(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp; input, <span style="color:#fff;font-weight:bold">int</span> start, <span style="color:#fff;font-weight:bold">int</span> end){
+    <span style="color:#007f7f">//Just return if there&#39;s zero on one element
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> (start &gt;= end) <span style="color:#fff;font-weight:bold">return</span>;
+    
+    <span style="color:#fff;font-weight:bold">int</span> p_index = partition(input, start, end);
+
+    <span style="color:#007f7f">//recursively call the same function on the left and right halves
+</span><span style="color:#007f7f"></span>    quickSort(input, start, p_index-<span style="color:#ff0;font-weight:bold">1</span>);
+    quickSort(input, p_index+<span style="color:#ff0;font-weight:bold">1</span>, end);
+    <span style="color:#fff;font-weight:bold">return</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div></p>
+
+<p><p>Note that, in the worst case, we can have N recursive calls which would result in O(N) function stack space usage.
+We can optimize the above code to make only one recursive call instead of two, and as the recursive call is being made
+at the end of the function, modern compiler can use tail call optimization.</p>
+
+<p><p><b>Optimized Version:</b> uses O(logN) space in the worst case</p>
+
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">41
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#fff;font-weight:bold">void</span> swap(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp; input, <span style="color:#fff;font-weight:bold">int</span> i1, <span style="color:#fff;font-weight:bold">int</span> i2){
+    <span style="color:#fff;font-weight:bold">int</span> temp = input[i1];
+    input[i1] = input[i2];
+    input[i2] = temp;
+}
+
+<span style="color:#fff;font-weight:bold">int</span> partition(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp; input, <span style="color:#fff;font-weight:bold">int</span> start, <span style="color:#fff;font-weight:bold">int</span> end){ 
+    <span style="color:#fff;font-weight:bold">int</span> pivot = end;
+    
+    <span style="color:#fff;font-weight:bold">int</span> index = start;
+
+    <span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">int</span> i = start; i &lt;=end; i++){
+        <span style="color:#fff;font-weight:bold">if</span> (input[i] &lt; array[pivot]){
+            swap(input, i, index);
+            index++;
+        }
+    }
+    swap(input, pivot, index);
+    <span style="color:#fff;font-weight:bold">return</span> index;
+}
+
+<span style="color:#007f7f">//Note that both start and end are inclusive in this implementation
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">void</span> quickSort(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp; input, <span style="color:#fff;font-weight:bold">int</span> start, <span style="color:#fff;font-weight:bold">int</span> end){
+    <span style="color:#007f7f">//Just return if there&#39;s zero on one element
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> (start &gt;= end) <span style="color:#fff;font-weight:bold">return</span>;
+    
+    <span style="color:#fff;font-weight:bold">while</span> (start &lt; end){
+        <span style="color:#fff;font-weight:bold">int</span> p_index = partition(input, start, end);
+
+        <span style="color:#007f7f">//recursively call the same function on the smaller half
+</span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">if</span> (p_index - start &lt; end - p_index){  <span style="color:#007f7f">//left half is smaller
+</span><span style="color:#007f7f"></span>            quickSort(input, start, p_index-<span style="color:#ff0;font-weight:bold">1</span>);
+            start = p_index+<span style="color:#ff0;font-weight:bold">1</span>;    <span style="color:#007f7f">//change start so that next loop sorts the right half
+</span><span style="color:#007f7f"></span>        }
+        <span style="color:#fff;font-weight:bold">else</span>{  <span style="color:#007f7f">//right half is smaller
+</span><span style="color:#007f7f"></span>            quickSort(input, p_index+<span style="color:#ff0;font-weight:bold">1</span>, end);  
+            end = p_index-<span style="color:#ff0;font-weight:bold">1</span>;     <span style="color:#007f7f">//change end so that next loop sorts the left half
+</span><span style="color:#007f7f"></span>        }
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div>
       </div>
 
       <footer>

@@ -101,6 +101,16 @@
     </item>
     
     <item>
+      <title>Quick Sort/Select</title>
+      <link>http://vibhorkanojia.github.io/algorithms/qs/</link>
+      <pubDate>Sun, 20 Jan 2019 00:36:07 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/algorithms/qs/</guid>
+      <description>&lt;p&gt;&lt;p&gt;Quick Sort is an incredibly interesting sorting algorithm. The worst case time complexity of this algorithm is O(N&lt;sup&gt;2&lt;/sup&gt;), but when implemented well, it can be about two or three times faster than its main competitors, merge sort and heap sort. Another good thing is that quick sort is an in-place sorting algorithm.
+&lt;p&gt;The only drawback is that the efficient implementations of this algorithm are not stable in nature, i.e., it doesn&amp;rsquo;t preserve the relative order of equal elements in the output.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Breadth First Search</title>
       <link>http://vibhorkanojia.github.io/algorithms/bfs/</link>
       <pubDate>Sun, 20 Jan 2019 00:35:46 +0530</pubDate>
@@ -180,15 +190,6 @@
       <pubDate>Thu, 10 Jan 2019 00:36:45 +0530</pubDate>
       
       <guid>http://vibhorkanojia.github.io/algorithms/recursion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Quick Sort/Select</title>
-      <link>http://vibhorkanojia.github.io/algorithms/qs/</link>
-      <pubDate>Thu, 10 Jan 2019 00:36:20 +0530</pubDate>
-      
-      <guid>http://vibhorkanojia.github.io/algorithms/qs/</guid>
       <description></description>
     </item>
     
