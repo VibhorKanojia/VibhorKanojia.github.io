@@ -108,8 +108,8 @@
       <div>
         <p>Many a times we need a data structure which can be used to access elements based on certain criteria, for e.g., from smallest to largest element. A Heap or A Priority Queue is a data structure which stores elements in an orderly fashion, such that the element with highest priority is at the top of the heap.</p> 
 
-<h3> Specifics </h3>
-<p>Heaps are implemented using an array/vector with the root node at index 0. Any node at index i has children at indices 2*i+1 and 2*i+2 in the array. All nodes follow the constraint that a parent has more priority than its children. While adding a node, we add it at the end of the array and then move it upwards while the constraint is violated.</p>
+<p><h3> Specifics </h3>
+<p>Heaps are implemented using an array/vector with the root node at index 0. Any node at index i has children at indices 2*i+1 and 2*i+2 in the array. All nodes follow the constraint that a parent has more priority than its children. While adding a node, we add it at the end of the array and then move it upwards while the constraint is violated.</p></p>
 
 <table>
   <tr>
@@ -129,8 +129,8 @@
   </tr>
 </table>
 
-<h3> Implementation </h3>
-<p>Implementation of the min/max heaps should not take more than 10 minutes. Below is the implementation of a min heap, i.e., a priority queue where priority is given to smaller elements.</p>
+<p><h3> Implementation </h3>
+<p>Implementation of the min/max heaps should not take more than 10 minutes. Below is the implementation of a min heap, i.e., a priority queue where priority is given to smaller elements.</p></p>
 
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -327,32 +327,28 @@
 </div>
 </div>
 
-<h5> Heapify </h5>
-<p>To heapify an array means to convert an array into a heap. To do this, we start at the bottom ignoring all the leaves, and call shiftDown function on all the non-leaf nodes. But looking at the recursive call one may mistakenly assume it to be a O(NlogN) complexity method. But there is an upper bound on the number of steps a node can move downwards which makes this function have O(N) complexity.</p>
+<p><h5> Heapify </h5>
+<p>To heapify an array means to convert an array into a heap. To do this, we start at the bottom ignoring all the leaves, and call shiftDown function on all the non-leaf nodes. But looking at the recursive call one may mistakenly assume it to be a O(NlogN) complexity method. But there is an upper bound on the number of steps a node can move downwards which makes this function have O(N) complexity.</p></p>
 
-<i>N: Number of nodes in the heap</i><br>
+<p><i>N: Number of nodes in the heap</i><br>
 <i>H: Height of the heap</i><br>
-<i>2<sup>i</sup> -> Nodes at level i (root is at level 0)</i><br>
+<i>2<sup>i</sup> -&gt; Nodes at level i (root is at level 0)</i><br>
 <br>
-<i>Therefore, number of operations involved are:</i><br>
+<i>Therefore, number of operations involved are:</i><br></p>
 
-<i>#O = 1*2<sup>H-1</sup> + 2*2<sup>H-2</sup> + 3*2<sup>H-3</sup> ... H*2<sup>0</sup>.</i><br>
-<i>#O = 2<sup>H</sup>* i/2<sup>i</sup>  (i = [1,H]).</i><br>
+<p><i>#O = 1*2<sup>H-1</sup> + 2*2<sup>H-2</sup> + 3*2<sup>H-3</sup> &hellip; H<em>2<sup>0</sup>.</i><br>
+<i>#O = 2<sup>H</sup></em> i/2<sup>i</sup>  (i = [1,H]).</i><br>
 <i>Now,</i><br>
-<i>i/2<sup>i</sup>  (i = [1,H])  <  i/2<sup>i</sup>  (i = [1,inf]). </i><br>
+<i>i/2<sup>i</sup>  (i = [1,H])  &lt;  i/2<sup>i</sup>  (i = [1,inf]). </i><br>
 <i>Right hand side is an AGP which sums up to 1. </i><br>
 <i>Hence,</i><br>
-<i>i/2<sup>i</sup>  (i = [1,H]) < 1.</i> <br>
+<i>i/2<sup>i</sup>  (i = [1,H]) &lt; 1.</i> <br>
 <i>#O = 2<sup>H</sup></i><br>
-<i>#O = O(N) (H = log(N)/log(2)) </i><br>
+<i>#O = O(N) (H = log(N)/log(2)) </i><br></p>
 
-
-
-
-
-<h3> C++ STL Library </h3>
+<p><h3> C++ STL Library </h3>
 <p>C++ has its own STL library implementation of priority queues which can be used directly without implementing your own methods.
-Below is an example where we want to access an employee database starting from the youngest employees.</p>
+Below is an example where we want to access an employee database starting from the youngest employees.</p></p>
 
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -474,10 +470,6 @@ Below is an example where we want to access an employee database starting from t
 </code></pre></td></tr></table>
 </div>
 </div>
-<h3> Problems </h3>
-
-<p></body>
-</html></p>
       </div>
 
       <footer>

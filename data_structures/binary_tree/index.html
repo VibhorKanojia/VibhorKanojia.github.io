@@ -108,17 +108,17 @@
       <div>
         <p>Unlike Arrays, Linked Lists, Stacks and Queues, which are linear data structures, trees are hierarchical data structures. Many real world datasets are hierarchical by nature and it makes more sense to store them in a tree data structure. I'll be discussing a special type of trees, Binary Trees.</p> 
 
-<h3> Types </h3>
+<p><h3> Types </h3>
 Binary Trees have only one root node, and each node has at most two children nodes. Following are common types of Binary Trees:
 <ul>
     <li><b>Full Binary Tree:</b> A Binary Tree is full if every node has zero or two children. In such a tree, #Leaves = #InternalNodes + 1</li>
     <li><b>Complete Binary Tree:</b> A Binary Tree is complete Binary Tree if all levels are completely filled except possibly the last level and the last level has all keys as left as possible</li>
     <li><b>Perfect Binary Tree:</b> A Binary tree is Perfect Binary Tree in which all internal nodes have two children and all leaves are at same level. Such a tree has 2<sup>h</sup>-1 nodes, where h is the height of the tree</li>
     <li><b>Degenerate Tree:</b> A Tree where every internal node has one child. Such trees are performance-wise same as linked list</li>
-</ul>    
+</ul></p>
 
-<h3> Binary Search Trees </h3>
-<p>A Binary Search Tree additionally satisfies the binary search property, which states that the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree. This property really improves the average case time complexity for inserting, deleting, searching a node in the data structure. However, the complexity doesn't change in the worst case scenario where the tree is a Degenerate tree.</p>
+<p><h3> Binary Search Trees </h3>
+<p>A Binary Search Tree additionally satisfies the binary search property, which states that the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree. This property really improves the average case time complexity for inserting, deleting, searching a node in the data structure. However, the complexity doesn&rsquo;t change in the worst case scenario where the tree is a Degenerate tree.</p></p>
 
 <table>
   <tr>
@@ -143,8 +143,8 @@ Binary Trees have only one root node, and each node has at most two children nod
   </tr>
 </table>
 
-<h3> Implementation </h3>
-Implementation of the above three operations should not take more than 10 minutes.
+<p><h3> Implementation </h3>
+Implementation of the above three operations should not take more than 10 minutes.</p>
 
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -283,7 +283,7 @@ Node * delete(Node * node){
 </div>
 </div>
 
-<h3> Tree Traversal </h3>
+<p><h3> Tree Traversal </h3>
 There are various ways to traverse a binary tree. Following are the most important traversal techniques:
 <h4> In-order traversal </h4>
 <i>Traverse the left-subtree, visit the current node, traverse the right subtree.</i>
@@ -319,10 +319,9 @@ There are various ways to traverse a binary tree. Following are the most importa
 }
 </code></pre></td></tr></table>
 </div>
-</div>
+</div></p>
 
-
-<h4> Pre-order traversal </h4>
+<p><h4> Pre-order traversal </h4>
 <i>Visit the current node, traverse the left subtree, traverse the right subtree.</i>
 <p>Pre-order traversal is used when you want to make changes to a tree recursively starting at the parent, and moving towards the children. It can be seen as a top-down recursive approach</p>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -356,11 +355,11 @@ There are various ways to traverse a binary tree. Following are the most importa
 }
 </code></pre></td></tr></table>
 </div>
-</div>
+</div></p>
 
-<h4> Post-order traversal </h4>
+<p><h4> Post-order traversal </h4>
 <i>Traverse the left subtree, traverse the right subtree, visit the current node.</i>
-<p>Post-order traversal is used when you want to make changes to a tree recursively starting at the children, and moving towards the parent. It can be seen as a bottom-up recursive approach</p>
+<p>Post-order traversal is used when you want to make changes to a tree recursively starting at the children, and moving towards the parent. It can be seen as a bottom-up recursive approach</p></p>
 
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -395,11 +394,11 @@ There are various ways to traverse a binary tree. Following are the most importa
 </div>
 </div>
 
-<h4> Level-order traversal </h4>
+<p><h4> Level-order traversal </h4>
 <i>Traverse the tree one level at a time..</i>
-<p>Level-order traversal is used when you want to visit all the nodes at height i before moving towards height i-1. Leaves have height = 0. General implementation is covered in the Breadth First Search algorithm. </p>
+<p>Level-order traversal is used when you want to visit all the nodes at height i before moving towards height i-1. Leaves have height = 0. General implementation is covered in the Breadth First Search algorithm. </p></p>
 
-<h3> Quiz </h3>
+<p><h3> Quiz </h3>
 <ul>
     <li> In a full binary tree, all nodes except leaves have two children. True or False? </li>
     <li> Every complete binary tree is a full binary tree and vice-versa? Tree or False? </li>
@@ -407,12 +406,7 @@ There are various ways to traverse a binary tree. Following are the most importa
     <li> In the delete function, instead of selecting the biggest node in the left sub-tree, we can also select the smallest node in the right sub-tree. True or False?</li>
     <li> How would you implement the delete function if you cannot store the parent information?</li>
     <li> If the Node struct has height variable, how would you update it while inserting or deleting a node? </li>
-</ul>
-
-<h3> Problems </h3>
-
-<p></body>
-</html></p>
+</ul></p>
       </div>
 
       <footer>

@@ -11,7 +11,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Backtracking"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Sometimes, none of the faster algorithms seem to work on some problems. In such scenarios, one should check the possible input size and if it seems small enough, the problem can be solved by using a brute force approach where we consider all the possibilities, also known as backtracking. A lot of NP hard problems like solving a sudoku, N-queens problem, etc can not be solved in polynomial time. Hence, we use backtracking, which usually has exponential complexity, to solve such problems."/>
 
 
     <base href="http://vibhorkanojia.github.io/algorithms/backtracking/">
@@ -88,13 +88,13 @@
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2019-01-10T00:35:59&#43;05:30'>
-                January 10, 2019
+              <time datetime='2019-01-20T00:36:07&#43;05:30'>
+                January 20, 2019
               </time>
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              0 minutes read
+              3 minutes read
             </span>
           </div>
           
@@ -106,7 +106,113 @@
       </header>
       <h3> Introduction </h3>
       <div>
-        
+        <p><p>Sometimes, none of the faster algorithms seem to work on some problems. In such scenarios, one should check the possible input size and if it seems small enough, the problem can be solved by using a brute force approach where we consider all the possibilities, also known as backtracking. A lot of NP hard problems like solving a sudoku, N-queens problem, etc can not be solved in polynomial time. Hence, we use backtracking, which usually has exponential complexity, to solve such problems.</p>
+
+<h3> Tutorials </h3>
+
+<table>
+  <tr>
+    <th>Links</th>
+  </tr>
+  <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Quicksort">Wikipedia</a></td>
+  </tr>
+  <tr>
+      <td><a href="https://www.geeksforgeeks.org/backtracking-algorithms/">GeeksforGeeks</a></td>
+  </tr>
+</table>
+
+<p><h3> Complexity </h3>
+<p> Backtracking is a class or algorithms, or rather, an approach. So the complexity varies depending upon the question.
+Mostly it is non-polynomial in nature.</p>
+
+<p><h3> Specifics </h3>
+<p> In backtracking, we use brute force recursion to generate all possible outcomes, and put those which satify the constraint/criteria, into an output vector.
+<p> As the name suggests, we go in-depth to find a solution, and if we don&rsquo;t find one we backtrack to the state where we have some alternative path to consider.</p>
+
+<p><h3> Implementation </h3>
+<p> Since it&rsquo;s more of an approach than an algorithm, I&rsquo;ll use a sample problem to share the thought process and code flow when solving a problem with backtracking.</p>
+
+<p><p><b>Problem Statement:</b> Subset sum problem is to find subset of elements that are selected from a given set whose sum adds up to a given number K. We are considering the set contains non-negative values. It is assumed that the input set is unique (no duplicates are presented).</p>
+
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">36
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#fff;font-weight:bold">void</span> backtrack(
+    vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp; input,            <span style="color:#007f7f">// input array
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">int</span> K,                          <span style="color:#007f7f">// target sum
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">int</span> cur_sum,                    <span style="color:#007f7f">// sum of elements currently being considered
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">int</span> start,                      <span style="color:#007f7f">// start index, all the elements before this index are already considered
+</span><span style="color:#007f7f"></span>    vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; solution,           <span style="color:#007f7f">// vector of elements currently being considered. Not passed by reference,
+</span><span style="color:#007f7f"></span>    vector&lt;vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt;&gt; &amp; result    <span style="color:#007f7f">// vector which holds all the solution vectors that satisfy the constraint/criteria. Passed by reference
+</span><span style="color:#007f7f"></span>){ 
+    
+    <span style="color:#007f7f">//We found the solution, no need to process further as we have only non-negative numbers in the array. So the sum will only increase further.
+</span><span style="color:#007f7f"></span>    <span style="color:#007f7f">//Add the current solution vector to the results.
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> (cur_sum == K){             
+        result.push_back(solution);
+        <span style="color:#fff;font-weight:bold">return</span>;
+    }
+    
+    <span style="color:#007f7f">//If we have considered all the elements, or if the sum of elements currently being considered is already greater than K, return.
+</span><span style="color:#007f7f"></span>    <span style="color:#007f7f">//We don&#39;t add the solution vector to the results here as it doesn&#39;t meet the required condition.
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> (start &gt;= input.size() || cur_sum &gt; K){
+        <span style="color:#fff;font-weight:bold">return</span>;
+    }
+    
+    <span style="color:#007f7f">//Main loop; note that we start considering elements from start index.
+</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> i = start; i &lt; input.size(); i++){
+        <span style="color:#007f7f">//take current element and make the next call recursively by updating cur_sum and start index.
+</span><span style="color:#007f7f"></span>        solution.push_back(input[i]);
+        backtrack(input, K, cur_sum+input[i], i+<span style="color:#ff0;font-weight:bold">1</span>, solution, result);
+    
+        <span style="color:#007f7f">/*After generating all possible outcomes that contain the current element, pop it from the solution,
+</span><span style="color:#007f7f">        to generate those outcomes which don&#39;t have this element in them. */</span>
+        solution.pop_back();
+    }
+    
+    <span style="color:#fff;font-weight:bold">return</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div>
       </div>
 
       <footer>

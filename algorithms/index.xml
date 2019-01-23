@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Backtracking</title>
+      <link>http://vibhorkanojia.github.io/algorithms/backtracking/</link>
+      <pubDate>Sun, 20 Jan 2019 00:36:07 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/algorithms/backtracking/</guid>
+      <description>&lt;p&gt;&lt;p&gt;Sometimes, none of the faster algorithms seem to work on some problems. In such scenarios, one should check the possible input size and if it seems small enough, the problem can be solved by using a brute force approach where we consider all the possibilities, also known as backtracking. A lot of NP hard problems like solving a sudoku, N-queens problem, etc can not be solved in polynomial time. Hence, we use backtracking, which usually has exponential complexity, to solve such problems.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Binary Search</title>
       <link>http://vibhorkanojia.github.io/algorithms/bs/</link>
       <pubDate>Sun, 20 Jan 2019 00:36:07 +0530</pubDate>
@@ -77,33 +86,6 @@
       
       <guid>http://vibhorkanojia.github.io/algorithms/sieve/</guid>
       <description>&lt;p&gt;Sometimes we encounter problems which are mathematical in nature, and involve concepts of number theory. More often than not, solving these problems require us to use prime numbers. Hence, we should know the Sieve (Sieve of Eratosthenes) algorithm to be able to generate prime numbers efficiently.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Recursion</title>
-      <link>http://vibhorkanojia.github.io/algorithms/recursion/</link>
-      <pubDate>Thu, 10 Jan 2019 00:36:45 +0530</pubDate>
-      
-      <guid>http://vibhorkanojia.github.io/algorithms/recursion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dynamic Programming</title>
-      <link>http://vibhorkanojia.github.io/algorithms/dp/</link>
-      <pubDate>Thu, 10 Jan 2019 00:36:15 +0530</pubDate>
-      
-      <guid>http://vibhorkanojia.github.io/algorithms/dp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Backtracking</title>
-      <link>http://vibhorkanojia.github.io/algorithms/backtracking/</link>
-      <pubDate>Thu, 10 Jan 2019 00:35:59 +0530</pubDate>
-      
-      <guid>http://vibhorkanojia.github.io/algorithms/backtracking/</guid>
-      <description></description>
     </item>
     
   </channel>
