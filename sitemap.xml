@@ -8,6 +8,21 @@
   </url>
   
   <url>
+    <loc>http://vibhorkanojia.github.io/posts/cs_fundamentals/</loc>
+    <lastmod>2019-03-16T22:53:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vibhorkanojia.github.io/cs-fundamentals/thread-process/</loc>
+    <lastmod>2019-03-16T00:36:07+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vibhorkanojia.github.io/cs-fundamentals/thread-c/</loc>
+    <lastmod>2019-03-16T00:36:07+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vibhorkanojia.github.io/data_structures/vector/</loc>
     <lastmod>2019-01-20T21:31:55+05:30</lastmod>
   </url>
@@ -115,6 +130,12 @@
   </url>
   
   <url>
+    <loc>http://vibhorkanojia.github.io/cs-fundamentals/</loc>
+    <lastmod>2019-03-16T00:36:07+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://vibhorkanojia.github.io/tags/data-structures/</loc>
     <lastmod>2019-01-20T21:31:55+05:30</lastmod>
     <priority>0</priority>
@@ -127,8 +148,14 @@
   </url>
   
   <url>
+    <loc>http://vibhorkanojia.github.io/tags/fundamentals/</loc>
+    <lastmod>2019-03-16T00:36:07+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://vibhorkanojia.github.io/posts/</loc>
-    <lastmod>2019-01-19T21:39:09+05:30</lastmod>
+    <lastmod>2019-03-16T22:53:27+00:00</lastmod>
     <priority>0</priority>
   </url>
   

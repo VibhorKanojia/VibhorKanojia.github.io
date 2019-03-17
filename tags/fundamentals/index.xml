@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fundamentals on vibhor kanojia</title>
+    <link>http://vibhorkanojia.github.io/tags/fundamentals/</link>
+    <description>Recent content in Fundamentals on vibhor kanojia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 16 Mar 2019 00:36:07 +0530</lastBuildDate>
+    
+	<atom:link href="http://vibhorkanojia.github.io/tags/fundamentals/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Threads and Processes</title>
+      <link>http://vibhorkanojia.github.io/cs-fundamentals/thread-process/</link>
+      <pubDate>Sat, 16 Mar 2019 00:36:07 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/cs-fundamentals/thread-process/</guid>
+      <description>&lt;p&gt;&lt;p&gt; When you click on the &lt;i&gt;Adobe Photoshop&lt;/i&gt; app, you start a process which is used to run the application.
+That process starts multiple threads to excute a lot of small tasks like loading plugins and fonts, building cache, etc.
+As threads can do anything that a process can do, a thread could be considered as a &amp;lsquo;lightweight&amp;rsquo; process.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Threads in C&#43;&#43;</title>
+      <link>http://vibhorkanojia.github.io/cs-fundamentals/thread-c/</link>
+      <pubDate>Sat, 16 Mar 2019 00:36:07 +0530</pubDate>
+      
+      <guid>http://vibhorkanojia.github.io/cs-fundamentals/thread-c/</guid>
+      <description>&lt;p&gt;&lt;p&gt; Let&amp;rsquo;s write a simple c++ program that can read and print a novel. But are we even an engineer if we don&amp;rsquo;t complicate this simple problem by introducing threads?&lt;br&gt;
+So let the program create multiple threads, such that each thread reads and prints just one word from the novel.
+&lt;p&gt;The challenge would be to ensure that the threads share the same data, don&amp;rsquo;t lock each other, and are scheduled in the right order.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

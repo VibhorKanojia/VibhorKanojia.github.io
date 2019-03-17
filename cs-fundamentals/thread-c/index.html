@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Vibhor Kanojia">
+    <meta name="description" content="Vibhor&#39;s personal space">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Threads in C&#43;&#43;"/>
+<meta name="twitter:description" content=" Let&rsquo;s write a simple c&#43;&#43; program that can read and print a novel. But are we even an engineer if we don&rsquo;t complicate this simple problem by introducing threads?
+So let the program create multiple threads, such that each thread reads and prints just one word from the novel.
+The challenge would be to ensure that the threads share the same data, don&rsquo;t lock each other, and are scheduled in the right order."/>
+
+
+    <base href="http://vibhorkanojia.github.io/cs-fundamentals/thread-c/">
+    <title>
+  Threads in C&#43;&#43; · vibhor kanojia
+</title>
+
+    <link rel="canonical" href="http://vibhorkanojia.github.io/cs-fundamentals/thread-c/">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:300,700|Source+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://vibhorkanojia.github.io/css/coder.min.ac37073bc2826cd28ef57364a9fe339de7ebcb26dafc22fd832cb35cf5b1d048.css" integrity="sha256-rDcHO8KCbNKO9XNkqf4znefryyba/CL9gyyzXPWx0Eg=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="http://vibhorkanojia.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://vibhorkanojia.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.53" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://vibhorkanojia.github.io">
+      vibhor kanojia
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://vibhorkanojia.github.io/">Home</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://vibhorkanojia.github.io/posts/">Blogs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://vibhorkanojia.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Threads in C&#43;&#43;</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-03-16T00:36:07&#43;05:30'>
+                March 16, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://vibhorkanojia.github.io/tags/fundamentals/">fundamentals</a></div>
+
+        </div>
+      </header>
+      <h3> Introduction </h3>
+      <div>
+        <p><p> Let&rsquo;s write a simple c++ program that can read and print a novel. But are we even an engineer if we don&rsquo;t complicate this simple problem by introducing threads?<br>
+So let the program create multiple threads, such that each thread reads and prints just one word from the novel.
+<p>The challenge would be to ensure that the threads share the same data, don&rsquo;t lock each other, and are scheduled in the right order.</p>
+
+<p><h3> Creating Threads </h3>
+Basic code to create threads in c++.
+All threads need to be joined back with the main thread after their execution.</p>
+
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">38
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#007f7f">// library to create and manage threads 
+</span><span style="color:#007f7f"></span><span style="color:#0f0;font-weight:bold">#include</span> <span style="color:#0f0;font-weight:bold">&lt;thread&gt; </span><span style="color:#0f0;font-weight:bold">
+</span><span style="color:#0f0;font-weight:bold"></span>
+<span style="color:#fff;font-weight:bold">using</span> <span style="color:#fff;font-weight:bold">namespace</span> std;
+
+<span style="color:#fff;font-weight:bold">int</span> main(){
+    <span style="color:#007f7f">// vector to store the thread objects
+</span><span style="color:#007f7f"></span>    vector&lt;<span style="color:#fff;font-weight:bold">thread</span> *&gt; vecOfThreads;
+
+    <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> i =<span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">100</span>; i++){
+
+        <span style="color:#007f7f">//Notice absence of () in the readNovel method when passed as a parameter.
+</span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">thread</span> *thr = <span style="color:#fff;font-weight:bold">new</span> <span style="color:#fff;font-weight:bold">thread</span>(readNovel);
+        vecOfThreads.push_back(thr);
+    }
+    
+    
+    <span style="color:#007f7f">//All threads need to be joined with the main thread after their execution.
+</span><span style="color:#007f7f"></span>    join_all(vecOfThreads); 
+    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">0</span>;
+}
+
+<span style="color:#fff;font-weight:bold">void</span> join_all(std::vector&lt;<span style="color:#fff;font-weight:bold">thread</span> *&gt;&amp; v)
+{
+    <span style="color:#007f7f">// Simply call do_join function on all the thread objects
+</span><span style="color:#007f7f"></span>    std::for_each(v.begin(),v.end(),do_join);
+}
+
+<span style="color:#fff;font-weight:bold">void</span> do_join(<span style="color:#fff;font-weight:bold">thread</span> *&amp; t)
+{
+  <span style="color:#007f7f">/* join() method allows one thread to wait until another
+</span><span style="color:#007f7f">   thread completes its execution. If t is a thread object
+</span><span style="color:#007f7f">    whose thread is currently executing, then t.join() will make
+</span><span style="color:#007f7f">   sure that t is terminated before the next instruction is 
+</span><span style="color:#007f7f">   executed by the program */</span>
+    t-&gt;join();
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Note that, whenever we create a thread object, we pass it a method to be executed, as a parameter.</p>
+
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#007f7f">// This multi-line string will act as our novel.
+</span><span style="color:#007f7f">//  Note that this data is shared by all the threads
+</span><span style="color:#007f7f"></span>string novel = <span style="color:#0ff;font-weight:bold">&#34;The salvation of man is through love and  \
+</span><span style="color:#0ff;font-weight:bold">                in love. I understand how a man who has \
+</span><span style="color:#0ff;font-weight:bold">                nothing left in this world still may know \
+</span><span style="color:#0ff;font-weight:bold">                bliss, be it only for a brief moment, in \
+</span><span style="color:#0ff;font-weight:bold">                the contemplation of his beloved.&#34;</span>;
+
+
+<span style="color:#007f7f">// This method will be executed by the 100 threads that we created
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">void</span> readNovel{
+    <span style="color:#fff;font-weight:bold">if</span> (novel.size() == <span style="color:#ff0;font-weight:bold">0</span>) <span style="color:#fff;font-weight:bold">return</span>;
+    
+    <span style="color:#fff;font-weight:bold">int</span> index = novel.find(<span style="color:#0ff;font-weight:bold">&#34; &#34;</span>);
+    
+    <span style="color:#007f7f">// print the first word in the novel.
+</span><span style="color:#007f7f"></span>    cout&lt;&lt;novel.substr(<span style="color:#ff0;font-weight:bold">0</span>,index)&lt;&lt;<span style="color:#0ff;font-weight:bold">&#34; &#34;</span>;
+
+    <span style="color:#fff;font-weight:bold">if</span> (index == -<span style="color:#ff0;font-weight:bold">1</span>){
+        <span style="color:#007f7f">//if we read the last word, make the novel empty.
+</span><span style="color:#007f7f"></span>        novel = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>;
+    }
+    <span style="color:#fff;font-weight:bold">else</span>{
+        <span style="color:#007f7f">//remove that word from the novel
+</span><span style="color:#007f7f"></span>        novel = novel.substr(index+<span style="color:#ff0;font-weight:bold">1</span>);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p><p>This is where we encounter the biggest issue with multi-threaded programming.
+<p>Imagine all the threads executing this method simultaneously, some threads trying to find the same word that
+some other thread is removing from the &lsquo;novel&rsquo;. All the threads will end up printing some garbage.</p>
+
+<p><p>Such parts of the code, which should be accessed by only one thread at a time, are called critical sections.
+We achieve this functionality by using mutexes or semaphores.</p>
+      </div>
+
+      <footer>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vkanojia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
